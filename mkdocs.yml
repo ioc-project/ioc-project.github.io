@@ -1,8 +1,3 @@
-# Internet of Cognition — documentation site.
-#
-# Diagrams are NOT stored under docs/. They live in diagrams/ (the repo's single
-# source of truth) and are copied into docs/assets/diagrams by scripts/sync-assets.sh,
-# which both the local preview and the Pages workflow run before building.
 
 site_name: Internet of Cognition
 site_description: Open architecture for multi-agent systems that think together — Cognition Protocols, SCOPE, MAS-Lab.

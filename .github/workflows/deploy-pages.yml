@@ -6,8 +6,6 @@ on:
     paths:
       - 'docs/**'
       - 'mkdocs.yml'
-      - 'diagrams/**'
-      - 'scripts/sync-docs-assets.sh'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -39,9 +37,6 @@ jobs:
 
       - name: Install MkDocs
         run: pip install --requirement docs/requirements.txt
-
-      - name: Sync diagrams into the docs asset tree
-        run: ./scripts/sync-docs-assets.sh
 
       - name: Build docs site
         run: mkdocs build --strict --site-dir _site
