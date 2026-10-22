@@ -1,0 +1,6 @@
+.venv/
+site/
+_site/
+docs/cognition-protocols/concord/spec/CONCORD-SPEC.html
+.DS_Store
+__pycache__/

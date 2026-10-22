@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1640 1150" width="1640" height="1150" font-family="Inter, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif"><rect x="0" y="0" width="100%" height="100%" fill="#000000"/>
+
+  <defs>
+    <marker id="aGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#65B168"/>
+    </marker>
+    <marker id="aSlate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8596A5"/>
+    </marker>
+    <marker id="aSlateLite" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475765"/>
+    </marker>
+    <marker id="aGrey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#657585"/>
+    </marker>
+    <marker id="aOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#FFA91F"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1640" height="1150" fill="#000000"/>
+
+  <!-- ================= TITLE ================= -->
+  <text x="60" y="38" font-size="25" font-weight="600" fill="#A3C3ED">Enforcement Proxy — sidecar flavor</text>
+  <text x="60" y="62" font-size="13.5" fill="#7F8FA4">The Cognition Fabric's only in-path node. Two outbound contracts, both terminating at CF. The proxy applies — it does not judge.</text>
+
+  <!-- ================= TRAFFIC PATHS ================= -->
+  <rect x="60" y="170" width="214" height="520" rx="12" fill="#030508" stroke="#212E3C" stroke-width="1.5"/>
+  <text x="167" y="196" font-size="11" font-weight="600" fill="#657585" text-anchor="middle">FOUR TRAFFIC PATHS</text>
+
+  <rect x="76" y="210" width="182" height="112" rx="8" fill="#0E1113" stroke="#51656F" stroke-width="1.5"/>
+  <text x="167" y="238" font-size="13" font-weight="600" fill="#B0C0C8" text-anchor="middle">C2A</text>
+  <text x="167" y="258" font-size="9.5" fill="#859FAB" text-anchor="middle">client → agent</text>
+  <text x="167" y="276" font-size="9.5" fill="#859FAB" text-anchor="middle">HTTP ingress</text>
+  <text x="167" y="300" font-size="9" font-style="italic" fill="#637B87" text-anchor="middle">traceparent injected here</text>
+
+  <rect x="76" y="332" width="182" height="112" rx="8" fill="#0E1113" stroke="#51656F" stroke-width="1.5"/>
+  <text x="167" y="360" font-size="13" font-weight="600" fill="#B0C0C8" text-anchor="middle">A2LLM</text>
+  <text x="167" y="380" font-size="9.5" fill="#859FAB" text-anchor="middle">agent → external LLM</text>
+  <text x="167" y="398" font-size="9.5" fill="#859FAB" text-anchor="middle">OpenAI · Anthropic</text>
+  <text x="167" y="422" font-size="9" font-style="italic" fill="#637B87" text-anchor="middle">eBPF or SDK trace</text>
+
+  <rect x="76" y="454" width="182" height="112" rx="8" fill="#0E1113" stroke="#51656F" stroke-width="1.5"/>
+  <text x="167" y="482" font-size="13" font-weight="600" fill="#B0C0C8" text-anchor="middle">A2A</text>
+  <text x="167" y="502" font-size="9.5" fill="#859FAB" text-anchor="middle">agent → agent</text>
+  <text x="167" y="520" font-size="9.5" fill="#859FAB" text-anchor="middle">inter-agent calls</text>
+  <text x="167" y="544" font-size="9" font-style="italic" fill="#637B87" text-anchor="middle">eBPF or SDK trace</text>
+
+  <rect x="76" y="576" width="182" height="112" rx="8" fill="#0E1113" stroke="#51656F" stroke-width="1.5"/>
+  <text x="167" y="604" font-size="13" font-weight="600" fill="#B0C0C8" text-anchor="middle">A2MCP</text>
+  <text x="167" y="624" font-size="9.5" fill="#859FAB" text-anchor="middle">agent → MCP server</text>
+  <text x="167" y="642" font-size="9.5" fill="#859FAB" text-anchor="middle">tool calling</text>
+  <text x="167" y="666" font-size="9" font-style="italic" fill="#637B87" text-anchor="middle">eBPF or SDK trace</text>
+
+  <text x="167" y="712" font-size="9.5" font-style="italic" fill="#758291" text-anchor="middle">all four converge on one</text>
+  <text x="167" y="727" font-size="9.5" font-style="italic" fill="#758291" text-anchor="middle">mediation point</text>
+
+  <line x1="260" y1="266" x2="296" y2="266" stroke="#657585" stroke-width="2"/>
+  <line x1="260" y1="388" x2="296" y2="388" stroke="#657585" stroke-width="2"/>
+  <line x1="260" y1="510" x2="296" y2="510" stroke="#657585" stroke-width="2"/>
+  <line x1="260" y1="632" x2="296" y2="632" stroke="#657585" stroke-width="2"/>
+  <line x1="298" y1="266" x2="298" y2="632" stroke="#657585" stroke-width="2"/>
+  <line x1="298" y1="420" x2="338" y2="420" stroke="#657585" stroke-width="2.5" marker-end="url(#aGrey)"/>
+
+  <!-- ================= AI AGENT RUNTIME ================= -->
+  <rect x="320" y="110" width="560" height="620" rx="14" fill="#000204" stroke="#384E65" stroke-width="2" stroke-dasharray="9 6"/>
+  <text x="340" y="140" font-size="15" font-weight="600" fill="#7F8FA4">AI Agent Runtime (Pod / Container)</text>
+  <text x="340" y="160" font-size="10.5" font-style="italic" fill="#657585">proxy in path — transparent or delegated</text>
+
+  <rect x="344" y="180" width="512" height="86" rx="10" fill="#4083E5"/>
+  <text x="600" y="212" font-size="15" font-weight="600" fill="#000000" text-anchor="middle">Agent workload</text>
+  <text x="600" y="240" font-size="11" fill="#082130" text-anchor="middle">unchanged (black-box)   /   with SDK (white-box)</text>
+
+  <line x1="600" y1="268" x2="600" y2="298" stroke="#88BD70" stroke-width="3" marker-start="url(#aGreen)" marker-end="url(#aGreen)"/>
+
+  <rect x="344" y="302" width="512" height="406" rx="12" fill="#0E1608" stroke="#88BD70" stroke-width="2.5"/>
+  <text x="600" y="330" font-size="15.5" font-weight="600" fill="#C2E5B8" text-anchor="middle">Enforcement Proxy — sidecar</text>
+  <text x="600" y="348" font-size="10" font-style="italic" fill="#A4D194" text-anchor="middle">default flavor · Kubernetes sidecar injection · in-path node</text>
+  <text x="600" y="365" font-size="9.5" fill="#A4D194" text-anchor="middle">MEDIATE — L9 conversations · tool / MCP / LLM calls · in-scope paths</text>
+
+  <rect x="362" y="376" width="476" height="88" rx="8" fill="#60943F" stroke="#88BD70" stroke-width="2"/>
+  <text x="600" y="402" font-size="13" font-weight="600" fill="#C2E5B8" text-anchor="middle">Envoy Go HTTP filter — the mediation point</text>
+  <text x="600" y="424" font-size="10" fill="#B0D9A3" text-anchor="middle">L7 request / response, not L4</text>
+  <text x="600" y="444" font-size="10" fill="#B0D9A3" text-anchor="middle">buffers the item · applies the returned Disposition</text>
+
+  <rect x="362" y="480" width="476" height="88" rx="8" fill="#284317" stroke="#65964F" stroke-width="2"/>
+  <text x="600" y="506" font-size="13" font-weight="600" fill="#C2E5B8" text-anchor="middle">Trace propagation</text>
+  <text x="600" y="528" font-size="10" fill="#B0D9A3" text-anchor="middle">Envoy / Wasm filters · eBPF optional</text>
+  <text x="600" y="548" font-size="10" font-style="italic" fill="#A4D194" text-anchor="middle">eBPF is correlation-only — it never enforces</text>
+
+  <rect x="362" y="584" width="476" height="106" rx="8" fill="#000000" stroke="#65964F" stroke-width="2"/>
+  <text x="600" y="610" font-size="12.5" font-weight="600" fill="#C2E5B8" text-anchor="middle">Audit record — one per mediated item</text>
+  <text x="600" y="631" font-size="10" fill="#B0D9A3" text-anchor="middle">submitted form · disposition · applied form · trace ID</text>
+  <text x="600" y="651" font-size="10" font-style="italic" fill="#A4D194" text-anchor="middle">a block record proves the upstream was never called</text>
+  <text x="600" y="674" font-size="9" fill="#95B585" text-anchor="middle">queryable: sidecar admin API · operator aggregator · explorer UI</text>
+
+  <!-- ================= CONTRACTS ================= -->
+  <text x="946" y="378" font-size="11.5" font-weight="600" fill="#A4D194" text-anchor="middle">① Enforcement</text>
+  <text x="946" y="394" font-size="9.5" fill="#88BD70" text-anchor="middle">ioc.ce.v1</text>
+  <line x1="862" y1="420" x2="1030" y2="420" stroke="#65B168" stroke-width="3.5" marker-start="url(#aGreen)" marker-end="url(#aGreen)"/>
+  <text x="946" y="442" font-size="9.5" font-weight="600" fill="#A4D194" text-anchor="middle">SUBMIT ▶</text>
+  <text x="946" y="457" font-size="9.5" font-weight="600" fill="#A4D194" text-anchor="middle">◀ DISPOSITION</text>
+
+  <text x="946" y="486" font-size="11.5" font-weight="600" fill="#95A9BF" text-anchor="middle">② Tracing</text>
+  <text x="946" y="502" font-size="9.5" fill="#657585" text-anchor="middle">ioc.cf.tracing.v1</text>
+  <line x1="862" y1="522" x2="1030" y2="522" stroke="#8596A5" stroke-width="3" marker-end="url(#aSlate)"/>
+  <line x1="1030" y1="540" x2="862" y2="540" stroke="#475765" stroke-width="2" marker-end="url(#aSlateLite)"/>
+  <text x="946" y="562" font-size="9.5" fill="#95A9BF" text-anchor="middle">EMIT ▶ emit-only</text>
+  <text x="946" y="577" font-size="9.5" fill="#657585" text-anchor="middle">◀ IngestAck</text>
+
+  <!-- ================= COGNITION FABRIC ================= -->
+  <rect x="1010" y="110" width="580" height="620" rx="14" fill="#01131B" stroke="#17BFFF" stroke-width="2.5"/>
+  <text x="1030" y="140" font-size="15" font-weight="600" fill="#7FD2F4">IoC Cognition Fabric (CF)</text>
+  <text x="1030" y="160" font-size="10.5" font-style="italic" fill="#5999B5">peer T3 — owns ingestion, trajectories, decisions</text>
+
+  <rect x="1036" y="370" width="320" height="100" rx="9" fill="#60943F" stroke="#88BD70" stroke-width="2"/>
+  <text x="1196" y="394" font-size="13.5" font-weight="600" fill="#C2E5B8" text-anchor="middle">Enforcing CF APIs</text>
+  <text x="1196" y="412" font-size="10" fill="#B0D9A3" text-anchor="middle">ioc.ce.v1 · req / resp</text>
+  <rect x="1046" y="424" width="69" height="26" rx="5" fill="#284317" stroke="#88BD70" stroke-width="1.2"/>
+  <text x="1080" y="442" font-size="9.5" font-weight="600" fill="#C2E5B8" text-anchor="middle">allow</text>
+  <rect x="1123" y="424" width="69" height="26" rx="5" fill="#270D09" stroke="#D44D3F" stroke-width="1.2"/>
+  <text x="1157" y="442" font-size="9.5" font-weight="600" fill="#E17F73" text-anchor="middle">block</text>
+  <rect x="1200" y="424" width="69" height="26" rx="5" fill="#644B04" stroke="#C59526" stroke-width="1.2"/>
+  <text x="1234" y="442" font-size="9.5" font-weight="600" fill="#FFD794" text-anchor="middle">modify</text>
+  <rect x="1277" y="424" width="69" height="26" rx="5" fill="#644B04" stroke="#C59526" stroke-width="1.2"/>
+  <text x="1311" y="442" font-size="9.5" font-weight="600" fill="#FFD794" text-anchor="middle">inject</text>
+
+  <rect x="1036" y="486" width="320" height="76" rx="9" fill="#73B0E1"/>
+  <text x="1196" y="510" font-size="12.5" font-weight="600" fill="#000000" text-anchor="middle">CF ingestion · ioc.cf.tracing.v1</text>
+  <text x="1196" y="530" font-size="10" fill="#152E42" text-anchor="middle">TraceItem stream → trajectory reconstruction</text>
+  <text x="1196" y="550" font-size="9.5" font-style="italic" fill="#274C70" text-anchor="middle">acknowledgments only — never a decision</text>
+
+  <rect x="1036" y="600" width="320" height="96" rx="9" fill="#A1C5ED"/>
+  <text x="1196" y="630" font-size="14" font-weight="600" fill="#000000" text-anchor="middle">Cognition Store</text>
+  <text x="1196" y="652" font-size="10.5" fill="#1F3D57" text-anchor="middle">Publish / Retrieve-Notify</text>
+  <text x="1196" y="674" font-size="9.5" font-style="italic" fill="#3F6080" text-anchor="middle">prior findings enrich the next submission</text>
+
+  <rect x="1386" y="240" width="180" height="340" rx="11" fill="#372A02" stroke="#FFA91F" stroke-width="2.5"/>
+  <text x="1476" y="272" font-size="13.5" font-weight="600" fill="#FFD385" text-anchor="middle">Cognition</text>
+  <text x="1476" y="292" font-size="13.5" font-weight="600" fill="#FFD385" text-anchor="middle">Engines</text>
+  <text x="1476" y="318" font-size="9.5" fill="#EFBF75" text-anchor="middle">out-of-process</text>
+  <text x="1476" y="334" font-size="9.5" fill="#EFBF75" text-anchor="middle">gRPC services</text>
+  <text x="1476" y="362" font-size="10.5" font-weight="600" fill="#FFD385" text-anchor="middle">decide the Disposition</text>
+  <line x1="1404" y1="382" x2="1548" y2="382" stroke="#75551F" stroke-width="1.5"/>
+  <text x="1476" y="406" font-size="9.5" fill="#EFBF75" text-anchor="middle">Security Detections</text>
+  <text x="1476" y="424" font-size="9.5" fill="#EFBF75" text-anchor="middle">Detective Investigations</text>
+  <text x="1476" y="442" font-size="9.5" fill="#EFBF75" text-anchor="middle">CASA</text>
+  <text x="1476" y="480" font-size="9" font-style="italic" fill="#AF8F5F" text-anchor="middle">authored by their own</text>
+  <text x="1476" y="496" font-size="9" font-style="italic" fill="#AF8F5F" text-anchor="middle">teams — out of scope</text>
+  <text x="1476" y="512" font-size="9" font-style="italic" fill="#AF8F5F" text-anchor="middle">for the proxy</text>
+  <text x="1476" y="546" font-size="9" fill="#EFBF75" text-anchor="middle">consume trajectories</text>
+  <text x="1476" y="562" font-size="9" fill="#EFBF75" text-anchor="middle">and prior findings</text>
+
+  <line x1="1358" y1="420" x2="1382" y2="420" stroke="#65B168" stroke-width="2.5" marker-start="url(#aGreen)" marker-end="url(#aGreen)"/>
+  <line x1="1358" y1="524" x2="1382" y2="524" stroke="#FFA91F" stroke-width="2.5" marker-end="url(#aOrange)"/>
+  <path d="M1358,648 L1420,648 L1420,584" fill="none" stroke="#FFA91F" stroke-width="2.5" marker-start="url(#aOrange)" marker-end="url(#aOrange)"/>
+
+  <!-- ================= SUBMIT / DISPOSITION LOOP ================= -->
+  <text x="60" y="778" font-size="13.5" font-weight="600" fill="#A3C3ED">THE SUBMIT / DISPOSITION LOOP — this is the whole contract</text>
+
+  <rect x="60" y="796" width="280" height="170" rx="11" fill="#030508" stroke="#212E3C" stroke-width="1.5"/>
+  <text x="200" y="824" font-size="12.5" font-weight="600" fill="#8596A5" text-anchor="middle">1 · TRACEPARENT</text>
+  <text x="200" y="854" font-size="10.5" fill="#95A9BF" text-anchor="middle">create or preserve the</text>
+  <text x="200" y="872" font-size="10.5" font-weight="600" fill="#95A9BF" text-anchor="middle">W3C traceparent</text>
+  <text x="200" y="906" font-size="9.5" font-style="italic" fill="#657585" text-anchor="middle">the correlation signal,</text>
+  <text x="200" y="922" font-size="9.5" font-style="italic" fill="#657585" text-anchor="middle">preserved across all four</text>
+  <text x="200" y="938" font-size="9.5" font-style="italic" fill="#657585" text-anchor="middle">traffic paths</text>
+
+  <line x1="342" y1="881" x2="366" y2="881" stroke="#657585" stroke-width="2.5" marker-end="url(#aGrey)"/>
+
+  <rect x="370" y="796" width="280" height="170" rx="11" fill="#0E1608" stroke="#65964F" stroke-width="1.5"/>
+  <text x="510" y="824" font-size="12.5" font-weight="600" fill="#B1D8AA" text-anchor="middle">2 · SUBMIT</text>
+  <text x="510" y="848" font-size="9.5" fill="#A4D194" text-anchor="middle">to the Enforcing CF APIs</text>
+  <text x="510" y="876" font-size="10" fill="#C2E5B8" text-anchor="middle">interaction_id</text>
+  <text x="510" y="894" font-size="10" fill="#C2E5B8" text-anchor="middle">message | tool_call</text>
+  <text x="510" y="912" font-size="10" fill="#C2E5B8" text-anchor="middle">traceparent</text>
+  <text x="510" y="930" font-size="10" fill="#C2E5B8" text-anchor="middle">trajectory · findings</text>
+  <text x="510" y="952" font-size="9" font-style="italic" fill="#85A175" text-anchor="middle">enriched from SCOPE and the store</text>
+
+  <line x1="652" y1="881" x2="676" y2="881" stroke="#657585" stroke-width="2.5" marker-end="url(#aGrey)"/>
+
+  <rect x="680" y="796" width="280" height="170" rx="11" fill="#0E1608" stroke="#65964F" stroke-width="1.5"/>
+  <text x="820" y="824" font-size="12.5" font-weight="600" fill="#B1D8AA" text-anchor="middle">3 · DISPOSITION</text>
+  <text x="820" y="848" font-size="9.5" fill="#A4D194" text-anchor="middle">returned by CF</text>
+  <text x="820" y="876" font-size="10" fill="#C2E5B8" text-anchor="middle">decision: allow | block |</text>
+  <text x="820" y="894" font-size="10" fill="#C2E5B8" text-anchor="middle">modify | inject</text>
+  <text x="820" y="912" font-size="10" fill="#C2E5B8" text-anchor="middle">reason · patch</text>
+  <text x="820" y="944" font-size="9" font-style="italic" fill="#85A175" text-anchor="middle">the proxy never decides this</text>
+
+  <line x1="962" y1="881" x2="986" y2="881" stroke="#657585" stroke-width="2.5" marker-end="url(#aGrey)"/>
+
+  <rect x="990" y="796" width="280" height="170" rx="11" fill="#1A2B0F" stroke="#88BD70" stroke-width="2"/>
+  <text x="1130" y="824" font-size="12.5" font-weight="600" fill="#C2E5B8" text-anchor="middle">4 · APPLY</text>
+  <text x="1130" y="852" font-size="9.5" fill="#C2E5B8" text-anchor="middle">allow — pass through</text>
+  <text x="1130" y="874" font-size="9.5" fill="#C2E5B8" text-anchor="middle">block — local error, never sent</text>
+  <text x="1130" y="896" font-size="9.5" fill="#C2E5B8" text-anchor="middle">modify — patch, then send</text>
+  <text x="1130" y="918" font-size="9.5" fill="#C2E5B8" text-anchor="middle">inject — add message(s)</text>
+  <text x="1130" y="946" font-size="9" font-style="italic" fill="#95B585" text-anchor="middle">modify and inject are first-class</text>
+
+  <line x1="1272" y1="881" x2="1296" y2="881" stroke="#657585" stroke-width="2.5" marker-end="url(#aGrey)"/>
+
+  <rect x="1300" y="796" width="280" height="170" rx="11" fill="#090F17" stroke="#3F5670" stroke-width="1.5"/>
+  <text x="1440" y="824" font-size="12.5" font-weight="600" fill="#A1C5ED" text-anchor="middle">5 · LOG</text>
+  <text x="1440" y="852" font-size="9.5" fill="#94B2D3" text-anchor="middle">audit record</text>
+  <text x="1440" y="878" font-size="10" fill="#A1C5ED" text-anchor="middle">submitted · disposition</text>
+  <text x="1440" y="896" font-size="10" fill="#A1C5ED" text-anchor="middle">applied · trace ID</text>
+  <text x="1440" y="928" font-size="9" font-style="italic" fill="#6F87A5" text-anchor="middle">carrying both forms is what</text>
+  <text x="1440" y="944" font-size="9" font-style="italic" fill="#6F87A5" text-anchor="middle">makes a silent amendment</text>
+  <text x="1440" y="960" font-size="9" font-style="italic" fill="#6F87A5" text-anchor="middle">detectable after the fact</text>
+
+  <!-- ================= FOOTER ================= -->
+  <rect x="76" y="1006" width="484" height="96" rx="10" fill="#030508" stroke="#212E3C" stroke-width="1.5"/>
+  <text x="94" y="1032" font-size="12" font-weight="600" fill="#A3C3ED">Six flavors, one contract</text>
+  <text x="94" y="1054" font-size="9.5" fill="#7F99B5">sidecar + Envoy (default) · Cilium · container supervisor ·</text>
+  <text x="94" y="1070" font-size="9.5" fill="#7F99B5">SLIM endpoint · interceptor SDK (dev/test) · eBPF (degradation).</text>
+  <text x="94" y="1088" font-size="9.5" font-style="italic" fill="#657585">All implement the same submit / Disposition loop.</text>
+
+  <rect x="578" y="1006" width="484" height="96" rx="10" fill="#030508" stroke="#212E3C" stroke-width="1.5"/>
+  <text x="596" y="1032" font-size="12" font-weight="600" fill="#A3C3ED">White-box and black-box</text>
+  <text x="596" y="1054" font-size="9.5" fill="#7F99B5">White-box: the app emits via an OpenTelemetry SDK.</text>
+  <text x="596" y="1070" font-size="9.5" fill="#7F99B5">Black-box: the proxy propagates traces itself.</text>
+  <text x="596" y="1088" font-size="9.5" font-style="italic" fill="#657585">Both are architecture of record — neither is a fallback.</text>
+
+  <rect x="1080" y="1006" width="484" height="96" rx="10" fill="#0E1608" stroke="#65964F" stroke-width="1.5"/>
+  <text x="1098" y="1032" font-size="12" font-weight="600" fill="#C2E5B8">The proxy does not decide</text>
+  <text x="1098" y="1054" font-size="9.5" fill="#A4D194">It applies what the Enforcing tier returns. Analytics and</text>
+  <text x="1098" y="1070" font-size="9.5" fill="#A4D194">Active need no in-path component — only Enforcing does.</text>
+  <text x="1098" y="1088" font-size="9.5" font-style="italic" fill="#95B585">That is the entire reason this node exists.</text>
+
+<!-- ioc:dark sans="Helvetica Neue, Helvetica, Arial, sans-serif" --></svg>

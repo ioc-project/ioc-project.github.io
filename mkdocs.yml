@@ -1,0 +1,122 @@
+
+site_name: Internet of Cognition
+site_description: Open architecture for multi-agent systems that think together — Cognition Protocols, SCOPE, MAS-Lab.
+site_url: https://ioc-project.github.io/
+repo_url: https://github.com/ioc-project/ioc-project.github.io
+repo_name: ioc-project/ioc-project.github.io
+edit_uri: edit/main/docs/
+copyright: Internet of Cognition Project. Open specification.
+
+theme:
+  name: material
+  language: en
+  # CiscoSans is not publicly distributable; Inter is the fallback the Outshift
+  # site itself declares after it, so the docs match without shipping the face.
+  font:
+    text: Inter
+    code: Roboto Mono
+  # Outshift's own wordmark, the same file outshift.cisco.com serves.
+  logo: assets/outshift-logo.svg
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+  # One palette, deliberately. The site is black, like the Outshift IoC pages.
+  # A second entry would add a toggle, and Material persists the chosen index in
+  # localStorage — so a reader who had picked light before would keep landing on
+  # a white page that none of the styling below is written for.
+  palette:
+    scheme: slate
+    primary: black
+    accent: cyan
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  # Material's :material-*: / :octicons-*: shortcodes are rendered by this;
+  # without it they ship to the page as literal text.
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: [docs]
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+hooks:
+  - scripts/hooks.py
+
+plugins:
+  - search
+
+extra_css:
+  - assets/extra.css
+
+extra_javascript:
+  # Drives the consumption-modes explorer on the How to page; a no-op elsewhere.
+  - assets/consumption-modes.js
+  # "Available today" toggle on the Overview's architecture figure; a no-op elsewhere.
+  - assets/architecture-toggle.js
+
+nav:
+  - Overview:
+      - index.md
+      - Motivation: overview/motivation.md
+      - Architecture: overview/architecture.md
+  - Cognition Protocols:
+      - cognition-protocols/index.md
+      - ACCORD:
+          - cognition-protocols/accord/index.md
+          - Design: cognition-protocols/accord/design.md
+          - Installation: cognition-protocols/accord/installation.md
+          - Evaluation: cognition-protocols/accord/evaluation.md
+      - CONCORD:
+          - cognition-protocols/concord/index.md
+          - Design: cognition-protocols/concord/design.md
+          - Installation: cognition-protocols/concord/installation.md
+          - Evaluation: cognition-protocols/concord/evaluation.md
+          - Specification: cognition-protocols/concord/specification.md
+      - Benchmarks: cognition-protocols/benchmarks.md
+      - Tutorials and Demos:
+          - cognition-protocols/tutorials/index.md
+          - Coding Architect Team: cognition-protocols/tutorials/coding-architect-team.md
+          - Hiddenbench: cognition-protocols/tutorials/hiddenbench.md
+          - E-Commerce: cognition-protocols/tutorials/e-commerce.md
+          - SRE Triage: cognition-protocols/tutorials/sre-triage.md
+          - Customer renewal discount: cognition-protocols/tutorials/customer-renewal-discount.md
+  - SCOPE:
+      - scope/index.md
+      - Instrumentation/Ingestion: scope/ingestion.md
+      - Analysis: scope/analysis.md
+      - Platform: scope/platform.md
+      - Tutorials and Demos:
+          - scope/tutorials/index.md
+          - Instrument your app: scope/tutorials/instrument-your-app.md
+          - Deploy SCOPE standalone: scope/tutorials/deploy-standalone.md
+  - MAS-Lab:
+      - mas-lab/index.md
+      - Integrations: mas-lab/integrations.md
+      - Labs: mas-lab/labs.md
+  - Getting Started: how-to/index.md

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1180" viewBox="0 0 2200 1180" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <rect width="2200" height="1180" fill="#000000"/>
+
+  <text x="1100" y="86" font-size="58" font-weight="700" fill="#17BFFF" text-anchor="middle">MAS-Lab</text>
+  <text x="1100" y="140" font-size="34" fill="#9AA6B2" text-anchor="middle">A five-stage pipeline from declaration to result; each stage hands the next a defined artifact</text>
+
+  <!-- ===================== CONTROL PLANE ===================== -->
+  <rect x="150" y="204" width="1900" height="122" rx="16" fill="#01131B" stroke="#0FBFFF" stroke-width="3"/>
+  <text x="1100" y="262" font-size="40" font-weight="600" fill="#7FD2F4" text-anchor="middle">LAB — experiment control plane</text>
+  <text x="1100" y="302" font-size="28" fill="#6C7A86" text-anchor="middle">varies one axis with the rest held fixed · n_runs repeats each case, so variance is measured</text>
+
+  <path d="M318 334 L318 414" stroke="#17BFFF" stroke-width="3" marker-end="url(#dn)"/>
+  <text x="350" y="382" font-size="26" font-style="italic" fill="#7FD2F4">selects the case</text>
+
+  <!-- ===================== FIVE STAGES ===================== -->
+  <g text-anchor="middle">
+    <rect x="150" y="420" width="336" height="250" rx="16" fill="#0B2036" stroke="#3FAFFF" stroke-width="3"/>
+    <text x="318" y="478" font-size="26" font-weight="700" fill="#3FAFFF">1</text>
+    <text x="318" y="524" font-size="38" font-weight="600" fill="#7DC8EA">SPECIFY</text>
+    <text x="318" y="576" font-size="27" fill="#9AA6B2">YAML manifests</text>
+    <text x="318" y="616" font-size="24" fill="#6C7A86">no imperative glue</text>
+
+    <rect x="541" y="420" width="336" height="250" rx="16" fill="#06231F" stroke="#3FD6B0" stroke-width="3"/>
+    <text x="709" y="478" font-size="26" font-weight="700" fill="#3FD6B0">2</text>
+    <text x="709" y="524" font-size="38" font-weight="600" fill="#7FE3C6">COMPOSE</text>
+    <text x="709" y="576" font-size="27" fill="#9AA6B2">mas-ctl</text>
+    <text x="709" y="616" font-size="24" fill="#6C7A86">one runnable config</text>
+
+    <rect x="932" y="420" width="336" height="250" rx="16" fill="#2A2006" stroke="#FFC147" stroke-width="3"/>
+    <text x="1100" y="478" font-size="26" font-weight="700" fill="#FFC147">3</text>
+    <text x="1100" y="524" font-size="38" font-weight="600" fill="#FFC147">EXECUTE</text>
+    <text x="1100" y="576" font-size="27" fill="#9AA6B2">mas-runtime</text>
+    <text x="1100" y="616" font-size="24" fill="#6C7A86">contracts enforced</text>
+
+    <rect x="1323" y="420" width="336" height="250" rx="16" fill="#111111" stroke="#9AA6B2" stroke-width="3"/>
+    <text x="1491" y="478" font-size="26" font-weight="700" fill="#9AA6B2">4</text>
+    <text x="1491" y="524" font-size="38" font-weight="600" fill="#D5DCE3">OBSERVE</text>
+    <text x="1491" y="576" font-size="27" fill="#9AA6B2">events.jsonl</text>
+    <text x="1491" y="616" font-size="24" fill="#6C7A86">from contract boundaries</text>
+
+    <rect x="1714" y="420" width="336" height="250" rx="16" fill="#300D2C" stroke="#DF87D5" stroke-width="3"/>
+    <text x="1882" y="478" font-size="26" font-weight="700" fill="#DF87D5">5</text>
+    <text x="1882" y="524" font-size="38" font-weight="600" fill="#E9AFE3">ANALYSE</text>
+    <text x="1882" y="576" font-size="27" fill="#9AA6B2">mas-lab-bench</text>
+    <text x="1882" y="616" font-size="24" fill="#6C7A86">figures from the run</text>
+  </g>
+
+  <g stroke="#737373" stroke-width="2.5" marker-end="url(#rt)">
+    <path d="M492 545 L531 545"/><path d="M883 545 L922 545"/>
+    <path d="M1274 545 L1313 545"/><path d="M1665 545 L1704 545"/>
+  </g>
+
+  <!-- return loop -->
+  <path d="M1882 694 L1882 764 L106 764 L106 545 L142 545" fill="none" stroke="#DF87D5" stroke-width="3" marker-end="url(#upPink)"/>
+  <text x="1106" y="796" font-size="27" font-style="italic" fill="#DF87D5" text-anchor="middle">results close the loop</text>
+
+  <!-- ===================== WHY IT HOLDS ===================== -->
+  <rect x="150" y="840" width="1900" height="200" rx="16" fill="#060A0D" stroke="#2A3844" stroke-width="3"/>
+  <text x="1100" y="896" font-size="32" font-weight="600" fill="#CCCCCC" text-anchor="middle">Four properties, each dependent on the preceding one</text>
+
+  <g text-anchor="middle">
+    <rect x="200" y="924" width="420" height="80" rx="12" fill="#0B2036" stroke="#3FAFFF" stroke-width="2"/>
+    <text x="410" y="962" font-size="32" font-weight="600" fill="#7DC8EA">Testable</text>
+    <text x="410" y="992" font-size="24" fill="#6C7A86">contracts give stable boundaries</text>
+
+    <rect x="650" y="924" width="420" height="80" rx="12" fill="#06231F" stroke="#3FD6B0" stroke-width="2"/>
+    <text x="860" y="962" font-size="32" font-weight="600" fill="#7FE3C6">Reproducible</text>
+    <text x="860" y="992" font-size="24" fill="#6C7A86">a run is a function of its manifests</text>
+
+    <rect x="1100" y="924" width="420" height="80" rx="12" fill="#2A2006" stroke="#FFC147" stroke-width="2"/>
+    <text x="1310" y="962" font-size="32" font-weight="600" fill="#FFC147">Observable</text>
+    <text x="1310" y="992" font-size="24" fill="#6C7A86">coverage is structural</text>
+
+    <rect x="1550" y="924" width="420" height="80" rx="12" fill="#300D2C" stroke="#DF87D5" stroke-width="2"/>
+    <text x="1760" y="962" font-size="32" font-weight="600" fill="#E9AFE3">Governable</text>
+    <text x="1760" y="992" font-size="24" fill="#6C7A86">policy is an overlay, not code</text>
+  </g>
+
+  <text x="1100" y="1104" font-size="30" font-style="italic" fill="#9AA6B2" text-anchor="middle">An observed difference is therefore attributable to the variable that was changed.</text>
+
+  <defs>
+    <marker id="rt" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="14" refX="19" refY="7" orient="auto"><path d="M1,1 L19,7 L1,13 Z" fill="#737373"/></marker>
+    <marker id="dn" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="14" refX="19" refY="7" orient="auto"><path d="M1,1 L19,7 L1,13 Z" fill="#17BFFF"/></marker>
+    <marker id="upPink" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="14" refX="19" refY="7" orient="auto"><path d="M1,1 L19,7 L1,13 Z" fill="#DF87D5"/></marker>
+  </defs>
+</svg>
