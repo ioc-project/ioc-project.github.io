@@ -220,7 +220,7 @@ put in place.
     endpoint; without A2A on the agent there is nothing for it to join, and
     insertion falls back to skills in the agents.
 
-    [:octicons-arrow-right-24: Insertion options](../cognition-protocols/index.md#insertion)
+    [:octicons-arrow-right-24: Insertion options](https://ioc-project.github.io/cognition-protocols/#insertion)
 
 -   :material-chart-timeline-variant: **OpenTelemetry instrumentation**
 
@@ -315,5 +315,5 @@ measured by the benchmarking layer.
 ## Related reading
 
 - [Overview &rarr; Architecture](../overview/architecture.md) &mdash; the components in full
-- [Cognition Protocols](../cognition-protocols/index.md#insertion) &mdash; the two insertion options and their determinism
+- [Cognition Protocols](https://ioc-project.github.io/cognition-protocols/#insertion) &mdash; the two insertion options and their determinism
 - [MAS-Lab &rarr; Labs](../mas-lab/labs.md) &mdash; what mode 3 reproduces

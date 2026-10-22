@@ -147,7 +147,7 @@ single factor can be varied with the rest held fixed.
 **What it contributes.** Every claim made on this site about a protocol, an engine
 or the fabric is measured here against a matched baseline. Without it, those claims
 would be assertions. The measured results reported under
-[Cognition Protocols](../cognition-protocols/index.md#measured-status) were produced
+[Cognition Protocols](https://ioc-project.github.io/cognition-protocols/#measured-status) were produced
 this way.
 
 [:octicons-arrow-right-24: MAS-Lab in detail](../mas-lab/index.md)

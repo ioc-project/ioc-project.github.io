@@ -180,7 +180,7 @@ the system under MAS-Lab for benchmarking and validation.
 
 | Component | Tutorials & Demo |
 |---|---|
-| Cognition Protocols | [Tutorials and Demos](cognition-protocols/tutorials/index.md) |
+| Cognition Protocols | [Tutorials and Demos](https://ioc-project.github.io/cognition-protocols/tutorials/) |
 | SCOPE | [Tutorials and Demos](scope/tutorials/index.md) |
 | MAS-Lab | [Quickstart and tutorials](https://outshift-open.github.io/mas-lab/tutorials/) |
 | Adoption path across components | [Getting Started](how-to/index.md) |
