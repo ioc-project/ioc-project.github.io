@@ -21,42 +21,44 @@ controllable operations at enterprise scale. That decomposes into three function
 SCOPE is released as **open source** software under the Apache 2.0 license, at
 [`ioc-project/ioc-scope`](https://github.com/ioc-project/ioc-scope).
 
-## Positioning
+## How SCOPE works
 
-![SCOPE inside the Cognition Fabric, consumed by the Cognition Engines through it](../assets/diagrams/scope-positioning.png)
+![SCOPE architecture: ingestion, enrichment and serving around the knowledge graph](../assets/diagrams/scope-full-architecture.svg)
 
-Within IoC, SCOPE sits **inside the Cognition Fabric** and supplies its comprehension
-layer. The division of responsibility is that the fabric owns the runtime and the
-contracts, and SCOPE owns the ingestion and analysis that populate them.
+SCOPE turns raw OTel spans into curated insights. A central **knowledge graph** sits
+at its core: every stage writes into it, and every consumer reads from it. A session
+moves through three stages, each covered in more detail on its own page.
 
-The **Cognition Engines** do not read SCOPE directly. They bind the CF API tiers, and
-the fabric serves SCOPE's output — insights, trajectories and metrics — through
-them.
+| Stage | What happens | Details |
+|---|---|---|
+| **1. Ingest** | A MAS emits OTel spans to an OTel collector, which stores them in a span datastore. The ingestion pipeline normalises each session into the knowledge graph, following the MAS ontology | [Instrumentation and Ingestion](ingestion.md) |
+| **2. Enrich** | The analysis engines add layers to the graph: embeddings, metrics, semantic groups, anomaly and consistency reports, and insights | [Analysis](analysis.md) |
+| **3. Serve** | The enriched graph is served through the API and visualised in the UI, and read by Cognition Engines through the fabric | [Platform](platform.md) |
 
-SCOPE can also be **deployed standalone**, independently of the rest of IoC. It has
-its own repository, lifecycle and release cadence, and operates against any MAS
-emitting OpenTelemetry traces without requiring the Cognition Fabric, the Cognition
-Protocols or any other IoC component.
+The ingestion and enrichment run as a chain of workers connected by queues, once per
+session, alongside two periodic workers that maintain the semantic-group hierarchy
+and derive insights. The modular worker chain is described in
+[Analysis](analysis.md#the-analysis-pipeline).
 
-[:octicons-arrow-right-24: Deployment modes](../how-to/index.md#the-three-modes)
+### Extensible by design
 
-## How a session flows through it
+The pipeline is modular, so a new analysis is added without touching what already
+runs. Every worker is:
 
-1. A MAS emits **OTel spans** to an OTel collector, which then sends it to a database, by default an instance of
-ClickHouse DB, but it can be replaced by another one.
+- **A separate package** — its own build, CLI entry point and container image, so
+  shipping or rolling back one worker never touches the others.
+- **A queue consumer and producer, not a caller** — it knows the names of the
+  queues it reads from and writes to, and holds no reference to the workers
+  upstream or downstream of it.
+- **Runnable two ways** — long-running queue mode in production, or single-message
+  mode for local testing and workflow steps.
 
-2. Once the trace is complete, the **ingestion pipeline**, a collection of workers, is triggered.
-First, the normalisation worker maps the raw spans onto
-   the [MAS ontology](#the-ontology), producing a structured execution model.
-3. Then, the session is enriched by the **analysis workers** — semantic grouping,
-   anomaly detection, consistency checking, stateful evaluation, and metrics, computed through the MCE
-   (Metrics Computation Engine).
-4. The enriched **knowledge graph** is served through the API and visualised in
-   the UI, and read by Cognition Engines through the fabric.
+Adding a stage means writing a worker that subscribes to an existing output queue
+and publishes its own results. No existing worker is modified.
 
-![SCOPE architecture](../assets/diagrams/scope-architecture.png)
+## The knowledge graph
 
-## Why OpenTelemetry alone is not enough
+### Why OpenTelemetry alone is not enough
 
 OpenTelemetry is optimised for collection and storage, not for reasoning about a
 multi-agent execution. Raw spans arrive with four properties that make them
@@ -70,69 +72,63 @@ unusable as an analysis substrate:
 | **Inconsistent** | The same field carries different meanings across emitters |
 
 Semantic conventions improve this only partially. Three gaps remain — **structure**,
-**temporal** and **semantic** — and closing them is the function of normalization
-and the ontology below.
+**temporal** and **semantic** — and closing them is the purpose of the knowledge
+graph: normalisation turns spans into a structured model, and later stages enrich it.
 
-## The ontology
+### A layered graph, defined by the ontology
 
-The ontology is what makes the analysis composable: every worker reads and writes
-nodes defined by it, rather than re-deriving structure from raw spans.
-Five bundled ontologies share a single namespace.
+The graph is layered, and **every stage writes its own layer** — which is what makes
+the analysis composable: a later stage reads the layer an earlier one produced rather
+than re-deriving it from raw spans. Each layer is defined by one of five bundled
+ontologies, which share a single namespace.
 
-| Ontology | Holds |
+| Layer / ontology | Written by | Holds |
+|---|---|---|
+| **MAS** | norm | The core execution schema — structural types (MAS, Agent, LLM, Tool, Processing), their execution instances, and the normalised State/Transition trajectory under a single session identity |
+| **Semantic** | embedding | The embedding layer linking State and Execution nodes to embeddings |
+| **Metrics** | mce | The Metric/MetricResult definition–observation split, score nodes, templates |
+| **Analysis** | analysis, grouping | Group-scoped analysis reports — consistency, anomaly, normal behaviour |
+| **Insight** | intelligence | Rendered, catalog-templated insights attached to a target graph node |
+
+The ontology is published, along with documentation and visualisation, at
+[ioc-project.github.io/ioc-scope/ontologies](https://ioc-project.io/ioc-scope/ontologies.html).
+
+## Positioning
+
+![SCOPE inside the Cognition Fabric, consumed by the Cognition Engines through it](../assets/diagrams/scope-positioning.png)
+
+Within IoC, SCOPE sits **inside the Cognition Fabric** and supplies its comprehension
+layer. The fabric owns the runtime and the contracts, and SCOPE owns the ingestion and
+analysis that populate them.
+
+| Concern | Owner |
 |---|---|
-| **MAS** | The core execution schema — structural types (MAS, Agent, LLM, Tool, Processing), their execution instances, and the normalized State/Transition trajectory |
-| **Metrics** | The Metric/MetricResult definition–observation split, score nodes, templates |
-| **Semantic** | The embedding layer linking State and Execution nodes to embeddings |
-| **Analysis** | Group-scoped analysis reports — consistency, anomaly, normal behaviour |
-| **Insight** | Rendered, catalog-templated insights attached to a target graph node |
+| Ingestion, normalisation, the graph, enrichment, insight production | **SCOPE** |
+| Fabric runtime, the three-tier API surface, CE routing and chaining, the protocol interaction plane | **CF** |
+| The **Cognition Store** — publish / retrieve-notify, CE findings | *Open question* — ownership between CF and SCOPE is not yet settled |
 
-The ontology is published, along with documentation and visualisation at [ioc-project.github.io/ioc-scope/ontologies](https://ioc-project.io/ioc-scope/ontologies.html)
+The **Cognition Engines** do not read SCOPE directly. They bind the CF API tiers, and
+the fabric serves SCOPE's output — insights, trajectories and metrics — through
+them. The **Analytics CF API**, the read-only tier they consume, is served through
+SCOPE's API layer.
 
-## Instrumentation is not mandated
+SCOPE can also be **deployed standalone**, independently of the rest of IoC. It has
+its own repository, lifecycle and release cadence, and operates against any MAS
+emitting OpenTelemetry traces without requiring the Cognition Fabric, the Cognition
+Protocols or any other IoC component.
 
-**The requirement is OpenTelemetry, not a specific SDK.** Any MAS emitting
-semantic-convention-compliant spans can be ingested.
-
-The reference instrumentation is the
-[AGNTCY Observe SDK](https://github.com/agntcy/observe) — `ioa_observe_sdk` —
-which decorates agent, tool and workflow functions and emits spans to an OTLP/HTTP
-collector. **SCOPE itself is not installed in the agent application.** Vendor SDKs,
-framework auto-instrumentation and custom emitters are all admissible, as are the
-boundary-level traces propagated in black-box mode.
-
-!!! warning "Fidelity tracks instrumentation richness"
-    Fields that are not convention-compliant are inferred on a best-effort basis,
-    and black-box traces arrive with materially less semantic content than
-    SDK-instrumented ones — so analysis coverage is wider where instrumentation is
-    richer. What does **not** vary is the ingestion contract.
-
-!!! note "Two modes of span ingestion"
-    The ingestion pipeline, and more precisely the normalisation worker, supports two modes.
-    Spans can either be ingested when a **session-completion notification** is received; or
-    spans are ingested as they arrive in a near real-time fashion, providing real-time support
-    for the knowledge graph.
-
-## Datastores are implementation, not architecture
-
-SCOPE is agnostic to the databases behind the knowledge graph and the telemetry store.
-Upstream clients see a stable API, so a backend can be replaced without changing what consumers see.
-
-That agnosticism is also the **adoption path**: rather than requiring an
-enterprise to stand up SCOPE's own stack, SCOPE can integrate with the observability
-platform and databases a customer already runs, and contribute the cognitive layer on top of them.
+[:octicons-arrow-right-24: Deployment modes](../how-to/index.md#the-three-modes)
 
 ## In this section
 
 <div class="grid cards" markdown>
 
--   **[Architecture](architecture.md)** — the pipelines, the graph, the boundary with CF.
--   **[Platform](platform.md)** — intake, stores, API layer, deployment.
--   **[Analysis Engines](analysis-engines.md)** — what each analysis does, and the Platform Engines they feed.
+-   **[Instrumentation and Ingestion](ingestion.md)** — what a MAS must emit, how spans reach SCOPE, and how they become a normalised session in the knowledge graph.
+-   **[Platform](platform.md)** — the API and UI that serve and visualise the knowledge graph, the datastores behind them, and deployment.
+-   **[Analysis](analysis.md)** — everything that enriches the knowledge graph, and the Platform Engines it feeds.
+-   **[Tutorials and Demos](tutorials/index.md)** — instrumenting a system and reading what SCOPE produces.
 
 </div>
-
-
 
 ## Source material
 

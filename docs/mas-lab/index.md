@@ -1,249 +1,201 @@
 # MAS-Lab
 
-<p class="eyebrow">The validation vehicle</p>
+<p class="eyebrow">The test bench of the Internet of Cognition</p>
 
-**Multi-agent systems are easy to build and hard to trust.** MAS-Lab is an
-open-source toolkit for building, running and validating multi-agent workflows
-with engineering discipline rather than demo luck.
+**MAS-Lab is an open-source toolkit for building multi-agent systems and finding
+out, with evidence, what makes them better or worse.** You describe a team of AI
+agents, run it many times, change one thing, and run it again. MAS-Lab records
+every step of every run, so when the behaviour changes you know which change
+caused it.
 
-It is developed in the open at
-its own repository, with its own documentation.
-This section covers what IoC uses it for; the upstream docs are the reference for
-the framework itself.
+In the Internet of Cognition (IoC), MAS-Lab is where the other components meet. The
+[Cognition Protocols](../cognition-protocols/index.md) are tried out in it,
+[SCOPE](../scope/index.md) is fed from it, and every measured claim on this site
+comes out of it.
 
-## The problem
+<div class="grid cards" markdown>
 
-Agent logic, orchestration, observability and control are usually entangled in
-prompts, ad hoc code and runtime behaviour. The result is a system that is hard
-to validate, reproduce or predict beyond the demo path. What a team learns from
-experimentation is weak evidence of how the system will behave under real
-conditions — production budgets, stricter policies, unpredictable failures.
+-   :material-file-document-outline: **Describe**
 
-??? example "A trip planner — what goes wrong between demo and production"
+    ---
 
-    A coordinator receives a request, breaks it into subtasks, and delegates to
-    agents that fetch schedules, compute routes and estimate cost. Over a few
-    queries the demo behaves as intended: structured output, visible reasoning,
-    clean tool calls.
+    Write down the agents, their tools and their rules once. That description is
+    the system.
 
-    Preparing it for production introduces memory for user preferences, tightened
-    reasoning patterns and a budget cap. Each change is individually small and
-    defensible; their combined effect is not.
+-   :material-layers-outline: **Change one thing**
 
-    The same query now returns different results. Handoffs become inconsistent.
-    Latency and cost drift. Repeating the experiment produces another outcome, and
-    rolling back a change does not fully restore the previous behaviour.
+    ---
 
-    There is no obvious place to debug, because there is no single system
-    definition to inspect. Instead there is a web of prompts, tool calls,
-    implicit rules and interactions that only emerge when the workflow runs end
-    to end.
+    Lay an *overlay* on top: a small change, such as a new skill, a budget or an
+    injected fault, that leaves the description untouched.
 
-This is not a missing dashboard or a better prompt template. It is structural:
-multi-agent workflows need **explicit intent, controlled execution, and evidence
-that carries from development into production**.
+-   :material-play-circle-outline: **Run and record**
 
-## Three coupled building blocks
+    ---
 
-MAS-Lab is not another agent framework. It is a layer that makes workflows
-explicit, execution controlled and results reproducible, so guarantees
-accumulate from design through production.
+    Run both versions on the same questions, several times each. Every step of
+    every run is kept.
 
-| Layer | What it is | The question it answers |
+-   :material-chart-box-outline: **Compare**
+
+    ---
+
+    Put the two versions side by side and see what the change did, and whether
+    the effect is larger than the noise.
+
+</div>
+
+## Why it exists
+
+Picture a team of agents that investigates incidents in a data centre. A lead agent
+reads the alert and asks specialists (network, database, telemetry) for their view.
+It works. Then you give the agents a shared memory, and some answers change.
+Some improve, some get worse. Was it the memory? A change in the model provider? The
+order in which specialists happened to reply? In most code bases you cannot tell,
+because the prompts, the tools, the wiring and the rules are all mixed together.
+
+It gets harder. Many multi-agent failures raise no error at all. A specialist agrees
+without checking. Two agents use the same word for different things. The lead acts
+before the others have reconciled their views. The final answer still arrives, on
+time, so monitoring sees nothing. [Motivation](../overview/motivation.md) shows how
+much accuracy these silent *cognitive failures* cost.
+
+To surface them you need to **reproduce them under control, watch what happens, and
+compare with the healthy system**. That needs a written description of what the
+system should be, a way to run it under control again and again, and a record of
+every run. MAS-Lab provides all three.
+
+## Four ideas to know
+
+Everything in MAS-Lab builds on four ideas. None of them needs code.
+
+**The description.** A system is described in a few configuration files: who the
+agents are, which model each uses, which tools and skills it has, and how they talk
+to each other. MAS-Lab reads the description and checks, while the system runs,
+that it stays within it. Because the description is the system, two people who run
+the same description run the same system.
+
+**The overlay.** An overlay is a change written on its own, like a transparent sheet
+laid over a drawing. It can add a skill to some agents, cap their budget, swap a
+model, or break something deliberately, for instance by making specialists ignore
+each other's evidence. The original description is never edited, so you can stack
+overlays, remove them, and always get back to where you started.
+
+**The experiment.** An experiment names the versions to compare, usually the
+unchanged system (the *baseline*) and one or more overlays, and the questions to
+ask them. MAS-Lab runs every version on every question several times, because a
+language model rarely answers the same way twice. This is an **A/B test**: since
+only the overlay differs between the two versions, a difference in the results is
+the effect of the overlay.
+
+**The record.** Every run leaves a complete record: each message, each tool call,
+each model call and each decision, in order. The record is what you score, what you
+replay without paying for the model again, and what you send to SCOPE.
+
+```text
+                    +-- baseline:  the system as described  -- run x N --> scores --+
+  same questions ---+                                                               +--> compare
+                    +-- variant:   the system + one overlay -- run x N --> scores --+
+```
+
+A **lab** packages one such experiment with everything needed to repeat it: the
+systems, the overlays, the questions, and the analysis that turns runs into
+figures. The [Labs](labs.md) page lists the labs behind the IoC results.
+
+## How MAS-Lab ties IoC together
+
+Each IoC component answers a different question. The Cognition Protocols ask *how
+should agents reach a shared understanding and a shared decision?* SCOPE asks *what
+did the agents actually do, and where did their thinking go wrong?* MAS-Lab asks
+*does a given change really help, and by how much?* Put together, they form a loop.
+
+```text
+  Cognition Protocols            MAS-Lab                    SCOPE
+  rules that help agents  ->  runs the system and  ->  observes the runs and
+  agree with each other       compares versions        explains what happened
+            ^                                                   |
+            +---------------- lessons feed back ----------------+
+```
+
+1. **Provoke.** MAS-Lab applies an overlay that introduces one known cognitive
+   failure into an otherwise healthy system.
+2. **Observe.** The runs are sent to SCOPE, which rebuilds what each agent did and
+   names the failure it finds.
+3. **Respond.** The Cognition Protocol meant for that failure is added to the agents
+   as a skill, through another overlay.
+4. **Measure.** MAS-Lab runs the system again and compares it with the baseline:
+   how many failures were repaired, and what the protocol cost in time and tokens.
+
+Each component gives the others something they could not get alone.
+
+| Component | What it gets from MAS-Lab | What it gives back |
 |---|---|---|
-| **Specification** | A versioned definition of agents, roles, tools, delegation, constraints and policies | *What is this workflow, and which version is under evaluation?* |
-| **Runtime** | Controlled execution that enforces the definition, protects state and resources, and records what happens | *How is that definition enforced during execution, including failures and contention?* |
-| **Labs** | Repeatable experiments that vary one factor at a time and produce comparable, reusable evidence | *What changes when a design choice or policy is varied under controlled conditions?* |
+| **[Cognition Protocols](../cognition-protocols/index.md)** — ACCORD and CONCORD | A controlled place to develop the protocol skills and an A/B test that measures what they add | The response to a detected failure, ready to be added to any agent |
+| **[SCOPE](../scope/index.md)** | Runs in which the failure is known in advance, because MAS-Lab put it there. That is the ground truth a detector needs | An explanation of each run: what happened, between which agents, and why it went wrong |
+| **Your own system** | The same experiments, rerun on your agents instead of a reference team | A before-and-after measured on your own workload. See [Getting Started](../how-to/index.md#the-three-modes) |
 
-What sets MAS-Lab apart is not a feature but a **separation**. In most systems
-today, logic, orchestration, governance and observability are entangled, there
-are no clear boundaries, and small changes propagate unpredictably. The three
-layers are what break that entanglement.
+[Integrations](integrations.md) explains how each connection works.
+[Labs](labs.md) walks through the experiments that produced the IoC results.
 
-### Specification comes first
+## An example, from start to finish
 
-MAS-Lab starts from the specification, not from a loose collection of agents.
-That choice is foundational. A specification gives a workflow a **stable
-identity**: an object that can be versioned, compared and referenced in results. It
-anchors observability, because traces attach to defined roles, tools and
-delegation paths rather than to an ad hoc prompt. And it enables analysis, since
-experiments depend on a declared baseline.
+The reference system for IoC is an incident-response team: a lead agent and five
+specialists who must agree on one fix. Each incident has a known right answer.
 
-A specification defines, at minimum:
+- **Baseline.** The team as shipped, with no protocol. This is the reference every
+  other version is compared with.
+- **Provoke.** An overlay leaves the specialists' views unreconciled. In the IoC
+  measurements the final fix was still right in most runs, yet the specialists
+  failed to converge in 84% of them: one agent acted first and the others followed.
+- **Observe.** SCOPE receives the runs and marks the unreconciled disagreement in
+  each one.
+- **Respond.** A second overlay gives the lead the CONCORD *initiator* skill and each
+  specialist the *receiver* skill. When views conflict, the lead now runs a short,
+  bounded round in which every specialist scores the candidate fixes.
+- **Measure.** MAS-Lab runs both versions on the same incidents, five times each, and
+  reports two numbers: whether every agent accepted the decision, and whether the
+  decision was right. It also reports the extra rounds and tokens the protocol cost.
 
-- the agents and their roles
-- delegation patterns and state flow
-- allowed tools and external resources
-- constraints and policies
+The full set-up and the results are on the [Labs](labs.md#l9-evaluation-labs) page and
+under [Benchmarks](../cognition-protocols/benchmarks.md).
 
-This follows a broader shift in the ecosystem — Agent Cards, OASF, AgentSpec —
-towards standardising boundaries so implementations can evolve without breaking
-the system. MAS-Lab extends that principle beyond interfaces to the full workflow
-lifecycle.
+## Where to go next
 
-!!! note "Inferred specifications are an on-ramp, not the end state"
-    Teams can bootstrap by inferring specs from existing systems. That eases
-    adoption but **weakens guarantees** — implicit intent is harder to version,
-    govern and benchmark. The end state is explicit specifications with
-    frameworks and tools plugged in, not reconstructed afterwards.
+This section explains MAS-Lab's place in IoC. MAS-Lab has its own documentation for
+the toolkit itself.
 
-### Runtime enforces it
-
-Once intent is declared, execution must enforce it. The runtime treats every
-meaningful action as part of a controlled lifecycle: validated against policy,
-executed with guardrails, recorded with context. It mediates access to internal
-state and external resources, and protects workflows from concurrency issues,
-partial failures and timing drift.
-
-This is where operations gain confidence: **the workflow that passed review is
-the one that runs**, with traces explaining who did what, under which policy, and
-with what outcome.
-
-### Labs produce evidence
-
-Labs apply controlled, declarative variations — changing one parameter at a time,
-whether policy, topology or configuration, while holding the specification and
-runtime constant. Each run produces artifacts built for comparison, regression
-detection and readiness assessment, not just a final score.
-
-## Cognitive and coordination failures
-
-This is where MAS-Lab and IoC meet directly.
-
-Not every failure announces itself as a tool error or a policy violation. Some
-are silent: **wrong delegation that still returns an answer, stale memory that
-sounds plausible, coordination drift that only appears under load.** These cannot
-be ruled out when writing the specification, and they do not trigger a clean
-error signal at runtime.
-
-In the IoC framing these are **cognitive system failures**. Diagnosing one
-requires comparing *intended behaviour* — the specification — against *actual
-execution* — the trace — with enough context to attribute the cause. MAS-Lab
-closes that loop: observability provides the signals, and the shared system
-identity makes them actionable, so a failure traces back to the exact workflow
-version, policy and interaction pattern that produced it.
-
-Remediation then feeds back into the same lifecycle — updating the specification,
-refining policies, extending experiments — instead of remaining a one-off patch.
-
-[:octicons-arrow-right-24: What IoC detects, and how](../overview/motivation.md)
-
-## Who it is for
-
-The same foundations serve three audiences differently.
-
-<div class="grid cards" markdown>
-
--   :material-code-braces: **Developers**
-
-    ---
-
-    Change one thing without breaking everything else. The specification is a
-    versioned system identity that can be diffed, branched and benchmarked; the
-    runtime isolates workflow structure from incidental prompt changes; labs turn
-    "it worked once" into comparable runs. Iteration becomes systematic rather
-    than anecdotal.
-
--   :material-shield-check-outline: **Operations**
-
-    ---
-
-    Control and governance. The specification is the contract — which agents
-    exist, what they can access, which policies apply. The runtime enforces it
-    before actions reach external systems, producing auditable traces. Labs
-    generate readiness evidence that supports release review.
-
--   :material-flask-outline: **Researchers and reviewers**
-
-    ---
-
-    Attribution. The specification makes the independent variable explicit, the
-    runtime preserves causal traces across agent interactions, and labs hold
-    other factors stable while varying one dimension — so outcomes tie to design
-    choices rather than being dismissed as noise.
-
-</div>
-
-## Continuity across the lifecycle
-
-A common drawback of agentic development today is **rebuilding the workflow
-between development, test and production**. Validation on a toy graph does not
-predict behaviour on the deployment graph.
-
-MAS-Lab uses one specification as the thread. Developers edit and version it,
-labs benchmark variants of it, operations deploy and monitor executions of it. A
-failing lab run or a drifted trace refers back to the same identity operators saw
-in change review. Design choices, runtime enforcement and experimental evidence
-attach to **one workflow definition instead of three incompatible copies**.
-
-That is also where systematic learning belongs. When workflows are observable
-under control, trade-offs become visible: richer context may help recall but hurt
-precision; stricter governance may add latency but reduce risk; more agents may
-not improve outcomes. Those insights feed the next specification revision rather
-than another round of prompt guessing.
-
-## What IoC uses it for
-
-| Role | What it means |
+| If you want to | Read |
 |---|---|
-| **Support platform** | For Cognition Protocol authors who need repeatable, observable, governed test environments |
-| **Evidence lab** | Produces quantitative before-and-after measurements of IoC motivation in realistic scenarios |
+| Understand what MAS-Lab is and who uses it | [Overview](https://outshift-open.github.io/mas-lab/overview/) |
+| See how it is built | [Architecture](https://outshift-open.github.io/mas-lab/architecture/) |
+| Install it and run a first example | [Tutorials, starting with Tutorial 0](https://outshift-open.github.io/mas-lab/tutorials/) |
+| Repeat the experiments of the MAS-Lab paper, or write your own | [Labs](https://outshift-open.github.io/mas-lab/labs/) |
+| Look up a configuration file or a command | [Manifests](https://outshift-open.github.io/mas-lab/manifests/) and [command line](https://outshift-open.github.io/mas-lab/cli/) |
+| Watch runs in a browser | [Web UI](https://outshift-open.github.io/mas-lab/ui/) and [live dashboard](https://outshift-open.github.io/mas-lab/ui/live/) |
+| Look up a word | [Glossary](https://outshift-open.github.io/mas-lab/glossary/) |
 
-Its problem statement, from IoC's side, is blunt: without a common lab, protocol
-claims remain informal, integration regressions go undetected, and IoC motivation
-is hard to communicate with hard numbers.
+## About the project
 
-!!! note "MAS-Lab is not an application"
-    It is a vehicle for *deploying* IoC applications with deep observability and
-    audit that ad-hoc test setups cannot achieve.
+MAS-Lab is open source under the Apache 2.0 licence, at
+[outshift-open/mas-lab](https://github.com/outshift-open/mas-lab). The current
+version is 0.2.0. It needs Python 3.11 or later, and you can install it with Docker
+or from a source checkout. The
+[release announcement](https://outshift-open.github.io/mas-lab/blog/2026/06/17/v0-1-release/)
+gives a short introduction.
 
-## How it fits the ecosystem
+### Cite MAS-Lab
 
-Teams already rely on agent frameworks (LangGraph, CrewAI, AutoGen), protocols
-(MCP, A2A) and a wide range of observability and evaluation platforms (LangSmith,
-Braintrust, Phoenix, Langfuse, Humanloop). Each layer solves a real problem — but
-they are usually assembled around workflows that have **no shared system
-definition**, so intent, execution and validation fragment.
+The method is described in this paper:
 
-MAS-Lab does not compete with that ecosystem; it complements and unifies it.
-Around one explicit, versioned specification — agnostic to how agents are
-implemented or which framework they run on — existing tools attach as plugins:
+> Augé, J., Carofiglio, G., Grassi, G. and Samain, J. (2026).
+> *MAS-Lab: A Specification-Driven Validation Framework for Reliable Multi-Agent
+> Systems.* Cisco Systems / Outshift.
 
-- observability platforms provide traces and signals
-- governance layers enforce policies and access controls
-- context/memory and tool systems contribute capabilities
-- evaluation and experimentation tools generate comparative evidence
-
-The shift is from **tool-centric to system-centric**: tools are no longer
-loosely stitched together, they attach to a common workflow identity that
-persists from development through production. Adoption does not require a clean
-slate — brownfield systems can be imported or inferred, whether built with coding
-agents, orchestration frameworks or custom stacks.
-
-## The paper
-
-*MAS-Lab: A Specification-Driven Validation Framework for Reliable Multi-Agent
-Systems* — Jordan Augé, Giovanna Carofiglio, Giulio Grassi, Jacques Samain
-(Cisco Systems / Outshift). Section 5's experiments are shipped as three runnable
-labs; `task reproduce` regenerates the figures.
-
-[:octicons-arrow-right-24: The paper labs](labs.md#the-paper-labs)
-
-## In this section
-
-<div class="grid cards" markdown>
-
--   **[Architecture](architecture.md)** — the five-stage pipeline, the variation axes, the control plane, the packages
--   **[Labs](labs.md)** — the three reproducible paper labs, and the IoC `sre-triage` lab
--   **[Tutorials and Demos](tutorials.md)** — quickstart, sample applications, reproducing the labs
-
-</div>
-
-## Source material
-
-- Introducing MAS-Lab: Bringing Reliability and Engineering Discipline to Multi-Agent Systems
-  — the v0.1 release post, by Giovanna Carofiglio, Jordan Augé and Mayank Gupta.
-  Most of this page follows it.
-- The MAS-Lab repository
-- The MAS-Lab documentation
-- `diagrams/mas-lab-architecture.md` — the IoC-side architecture write-up
+```bibtex
+@article{maslab2026,
+  title  = {{MAS-Lab}: A Specification-Driven Validation Framework for Reliable Multi-Agent Systems},
+  author = {Aug{\'e}, Jordan and Carofiglio, Giovanna and Grassi, Giulio and Samain, Jacques},
+  year   = {2026},
+  url    = {https://github.com/outshift-open/mas-lab}
+}
+```

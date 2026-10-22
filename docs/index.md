@@ -173,13 +173,16 @@ the system under MAS-Lab for benchmarking and validation.
 
 !!! info "In preparation"
     Each component section carries its own Tutorials and Demos page. Walkthroughs
-    are being written; the MAS-Lab quickstart works today.
+    are being written; the MAS-Lab quickstart and SCOPE instrumentation guide are
+    available today.
+
+[Instrument an agent with Observe SDK, manually or with a coding harness](scope/tutorials/instrument-your-app.md){ .md-button }
 
 | Component | Tutorials & Demo |
 |---|---|
 | Cognition Protocols | [Tutorials and Demos](cognition-protocols/tutorials/index.md) |
-| SCOPE | [Tutorials and Demos](scope/tutorials.md) |
-| MAS-Lab | [Tutorials and Demos](mas-lab/tutorials.md) |
+| SCOPE | [Tutorials and Demos](scope/tutorials/index.md) |
+| MAS-Lab | [Quickstart and tutorials](https://outshift-open.github.io/mas-lab/tutorials/) |
 | Adoption path across components | [Getting Started](how-to/index.md) |
 
 ## Related reading

@@ -1,106 +1,189 @@
+---
+icon: material/flask-outline
+---
+
 # MAS-Lab — Labs
 
-A **lab** (`*.lab/`) holds the experiment manifests for one investigation. Each
-`experiment.yaml` lists its **scenarios**, its **dataset**, and an **embedded
-pipeline** that builds figures directly from the `events.jsonl` logs — so a lab
-produces its charts, metrics and comparison reports with no separate plotting
-scripts.
+<p class="eyebrow">The experiments behind the IoC results</p>
 
-```bash
-mas-lab benchmark run labs/<name>.lab/experiment.yaml --progress
-```
+A **lab** is a packaged experiment. Like a good lab notebook, it holds everything
+needed to repeat the work: the systems under test, the changes to try, the questions
+to ask, and the analysis that turns runs into figures and numbers. Anyone can run a
+lab again and check the result.
 
-## The paper labs
+The IoC labs form a chain of evidence. Each one answers a question the next one
+builds on.
 
-MAS-Lab ships **three reproducible labs**, one per experimental section of
-*MAS-Lab: A Specification-Driven Validation Framework for Reliable Multi-Agent
-Systems* (Augé, Carofiglio, Grassi, Samain — Cisco Systems / Outshift).
-
-| Lab | Paper § | What it explores |
+| Question | Lab | Where it lives |
 |---|---|---|
-| `design-space.lab` | §5.1 | Design patterns and team topologies |
-| `lifecycle-control.lab` | §5.2 | Governance **overlays** across the lifecycle |
-| `extensions.lab` | §5.3 | Memory and context **overlays** |
+| **How do multi-agent systems fail?** | [IoC motivation lab](#ioc-motivation-lab) | [`labs/ioc-motivation.lab`](https://github.com/outshift-open/mas-lab/tree/main/labs/ioc-motivation.lab) in MAS-Lab |
+| **Do ACCORD and CONCORD repair those failures, and at what cost?** | [L9 evaluation labs](#l9-evaluation-labs) | `concord/testing/` in the `ioc-core-l9-main` repository |
+| **Do the failures show up on other systems too?** | [Cognitive-challenge labs](#cognitive-challenge-labs) | The `ioc-core-mas-lab` repository |
+| **Is the method itself sound?** | [Paper labs](#paper-labs) | [MAS-Lab labs documentation](https://outshift-open.github.io/mas-lab/labs/) |
 
-Note what the second and third have in common: both vary **overlays**, not
-application logic. That is the axis separation doing its job — governance and
-memory are changed, audited and measured independently of the MAS being studied.
+## How every lab works
 
-### Named experiments
+Every lab is an A/B test, as described in
+[Four ideas to know](index.md#four-ideas-to-know). It follows the same four steps.
 
-| `experiment.name` | Output path |
+<div class="grid cards" markdown>
+
+-   **1 · Change one thing**
+
+    ---
+
+    An overlay either breaks something on purpose or adds a protocol. The system's
+    own description is not touched.
+
+-   **2 · Run, many times**
+
+    ---
+
+    The unchanged system and each changed version answer the same questions,
+    several times each.
+
+-   **3 · Observe**
+
+    ---
+
+    Every run is scored. Runs can also be sent to [SCOPE](../scope/index.md), as
+    shown in [Integrations](integrations.md#runs-come-out-for-scope).
+
+-   **4 · Compare**
+
+    ---
+
+    Each version is compared with the unchanged system. Only the overlay differs,
+    so the gap is the overlay's effect.
+
+</div>
+
+## IoC motivation lab
+
+**The question.** What goes wrong in a working multi-agent system, and how badly?
+
+**The set-up.** This lab accompanies the study
+[Cognitive challenges in multi-agent systems](https://outshift.cisco.com/blog/ai-ml/cognitive-challenges-in-multi-agent-systems).
+It takes an incident-investigation team that works well and introduces nine kinds of
+cognitive failure into it, one at a time, each through its own overlay. Some
+examples:
+
+- agents that pursue different goals without saying so;
+- agents that mean different things by the same word;
+- agents that accept a claim without asking for evidence.
+
+The team runs in two layouts: one agent in charge of the others, and an open debate
+among equals.
+
+**What is measured.** Each failure is compared with the healthy team on the same
+incidents. A heatmap marks a failure as harmful when a score drops by 25 percent or
+more.
+
+**Repeat it.** The recorded runs and scores are published with the lab, so the figures
+can be rebuilt without calling a language model at all. The lab's README explains
+each failure, how to record the runs again from scratch, and how to browse them in
+the MAS-Lab web interface.
+
+## L9 evaluation labs
+
+**The question.** When ACCORD and CONCORD are added to the agents, how many failures
+do they repair, and what do they cost?
+
+**The set-up.** A lead agent and five specialists must agree on one fix for an
+incident. Each incident has a known right answer. The team as shipped uses no
+protocol, which makes it a fair baseline. The protocols are added as skills by
+overlays (see
+[Integrations](integrations.md#cognition-protocols-go-in-as-skills)). The main
+experiment runs five versions of the team, five times each, with a live language
+model:
+
+| Version | What changes |
 |---|---|
-| `lab1-exp1.1-design-patterns-qa` | `$XDG_DATA_HOME/mas/labs/lab1-exp1.1-design-patterns-qa/` |
-| `lab1-exp1.2-topologies-trip-planner` | `$XDG_DATA_HOME/mas/labs/lab1-exp1.2-topologies-trip-planner/` |
-| `lifecycle-control` | `$XDG_DATA_HOME/mas/labs/lifecycle-control/lifecycle-control/` |
-| `memory-extension-reproducibility` | `$XDG_DATA_HOME/mas/labs/memory-extension-reproducibility/` |
+| **Baseline** | Nothing |
+| **CONCORD** | The lead gets the initiator skill, every specialist the receiver skill |
+| **CONCORD, always on** | As above, but the lead is told to start CONCORD every time. This tests the whole protocol without depending on the model deciding to use it |
+| **ACCORD** | The ACCORD skills, in the same way |
+| **ACCORD and CONCORD** | Both protocols together |
 
-## Running them
+A second experiment focuses on incidents where the specialists genuinely disagree,
+and compares the team with and without CONCORD.
 
-The labs run over the sample applications shipped with MAS-Lab, and reproduce with
-a single command.
+**What is measured.** Two scores, and both are needed:
 
-[:octicons-arrow-right-24: Quickstart and reproduction steps](tutorials.md)
-
-## IoC labs
-
-Labs specific to IoC protocol validation live in the IoC repositories rather than
-upstream.
-
-### `sre-triage`
-
-The lab behind the first measured [CONCORD](../cognition-protocols/concord/design.md#worked-example)
-evidence. Several role-specialised agents — security, cost, latency, network —
-must converge on a single remediation for an incident. Each agent is correct from
-its own role, and the conflict between them is structural rather than a fault.
-
-**Layout** (`ioc-core-l9-main/mas-lab/sre-triage/`):
-
-| Path | Contents |
+| Score | Question it answers |
 |---|---|
-| `mas.yaml` · `infra.yaml` | Base MAS definition and infrastructure bundle |
-| `experiment.yaml` | Scenario matrix and run configuration |
-| `agents/` · `prompts/` | Agent definitions and versioned prompts |
-| `skills/` · `tools/` | CONCORD orchestrator / receiver skills and the protocol engine tools |
-| `datasets/` · `data/` | Incident items, each carrying a `correct_action` ground truth |
-| `overlays/` · `scenario-overlays/` · `pattern-overlays/` · `prompt-overlays/` | The variation axes |
-| `hybrid-regression.yaml` · `run_eval.py` | Regression configuration and evaluation entry point |
+| **Certification** | Did every agent rate the final decision at or above its own minimum? |
+| **Correctness** | Was the decision the right one? |
 
-**What it measures** — two independent metrics, and **both must be reported**:
+CONCORD certifies that every agent found the decision acceptable. That is not the
+same as the decision being right: a team can agree, confidently, on the wrong fix.
+Looking at certification alone would count that as a success, which is why
+correctness is always reported next to it. The recorded runs also give the cost of
+the protocol, the number of rounds it took, and how well the least satisfied agent
+fared. These are computed afterwards, from the records, with no further model calls.
 
-| Metric | Question |
+**Repeat it.** The test set-up in `concord/testing/mas-lab/` runs the comparison
+inside MAS-Lab. It needs the incident team and its failure tools from
+`ioc-core-mas-lab`, the protocol skills from `ioc-core-l9-skills`, and access to a
+language model. Its README gives the steps.
+
+### A small worked example with four agents
+
+A second set-up, in `concord/testing/claude-subagents/`, is small enough to follow by
+hand. Four agents each look after one part of an infrastructure (a data centre,
+the network, the telemetry and a database) and can see only their own part. They
+share nothing but a score between 0 and 1 and one sentence of reasoning, so no agent
+can check what another one claims.
+
+The example compares CONCORD with six simpler ways of deciding: letting the incident
+owner choose, taking a vote, asking a language model to pick an option, asking it to
+write a plan, and so on. The strongest of these, a language model writing a new
+plan, produces a plan that suits every agent but one. In the recorded run, only
+CONCORD checks that the plan suits every agent.
+
+A recorded run can be replayed instantly, with the same result every time and no
+language model, which makes it a good way to see the protocol at work. It is the
+source of the [worked example](../cognition-protocols/concord/design.md#worked-example)
+in the CONCORD design. New measurements come from the MAS-Lab comparison above, or
+from running the example live.
+
+**Results.** [Benchmarks](../cognition-protocols/benchmarks.md) ·
+[ACCORD evaluation](../cognition-protocols/accord/evaluation.md) ·
+[CONCORD evaluation](../cognition-protocols/concord/evaluation.md)
+
+## Cognitive-challenge labs
+
+**The question.** Are the failures specific to one team, or do they appear on other
+systems as well?
+
+**The set-up.** The `ioc-core-mas-lab` repository holds IoC's reference applications
+and a wider set of failure experiments on two systems: the incident team, and a
+travel planner made of four agents. It has 23 failure overlays, 11 for the incident
+team and 12 for the travel planner. The kinds of failure are introduced in
+[Motivation](../overview/motivation.md).
+
+A failure can be introduced in two ways:
+
+| Approach | What changes |
 |---|---|
-| **Certification** | Did every agent clear its satisfaction floor? |
-| **Correctness** | Did the run choose the `correct_action` ground truth? |
+| **Overlay injection** | The agents' instructions are altered so that they fail in a given way |
+| **Prompt sweep** | The question is rewritten, again and again, until a separate judge model confirms that the failure occurred |
 
-CONCORD certifies that all agents cleared their floor; it says nothing about
-whether the action is right. Reporting only the first would let a confident wrong
-answer read as success.
+Both approaches leave the same kind of record, so one scoring method covers both, and
+one command scores a run.
 
-**Comparators** — the lab runs the protocol against owner-decides, llm-picks,
-plurality, best-average, unanimity, and `llm-writes-one` (an LLM commander given
-every plan and every score and asked to synthesise). `llm-writes-one` is the
-strongest non-protocol comparator; it produces a viable plan but does not verify
-whether the plan clears every agent's floor.
+## Paper labs
 
-!!! danger "The A/B overlay is currently a no-op"
-    `overlays/with-consensus-protocol.yaml` is `spec: {}`. The CONCORD skills were
-    authored but wired into the **base** `mas.yaml` agents instead of the overlay,
-    so `protocol-enabled` and `protocol-disabled` in `experiment.yaml` describe the
-    same system.
+**The question.** Does MAS-Lab measure what it claims to measure?
 
-    **No live A/B measurement of CONCORD is possible until the skills and tools
-    move out of the base agents into the overlay.** The results published today
-    come from replaying a recorded run. Tracked as **G-1** in the
-    [CONCORD gap list](../cognition-protocols/concord/evaluation.md#threshold-calibration).
+**The set-up.** These labs reproduce the experiments of the MAS-Lab paper. They test
+the toolkit itself on example systems and need no IoC component.
 
-!!! warning "TODO"
-    ACCORD intent-alignment labs, and labs covering the remaining protocol concerns, are
-    not yet defined. Owners to add.
+| Lab | What it varies |
+|---|---|
+| [Design space](https://github.com/outshift-open/mas-lab/tree/main/labs/design-space.lab) | How agents reason, and how the team is laid out |
+| [Lifecycle control](https://github.com/outshift-open/mas-lab/tree/main/labs/lifecycle-control.lab) | Rules and limits applied to agents, and what they cost |
+| [Extensions](https://github.com/outshift-open/mas-lab/tree/main/labs/extensions.lab) | Adding memory to a system |
 
-## Source material
-
-- the MAS-Lab repository, under `labs/`
-- Paper map — `docs/paper/`
-- Tutorial 3 — Run an experiment
-- `ioc-core-l9-main/mas-lab/sre-triage/` · the CONCORD implementation review
+The [MAS-Lab labs documentation](https://outshift-open.github.io/mas-lab/labs/)
+explains how to run them.

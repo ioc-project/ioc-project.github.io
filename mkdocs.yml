@@ -108,13 +108,15 @@ nav:
           - Customer renewal discount: cognition-protocols/tutorials/customer-renewal-discount.md
   - SCOPE:
       - scope/index.md
-      - Architecture: scope/architecture.md
+      - Instrumentation/Ingestion: scope/ingestion.md
+      - Analysis: scope/analysis.md
       - Platform: scope/platform.md
-      - Analysis Engines: scope/analysis-engines.md
-      - Tutorials and Demos: scope/tutorials.md
+      - Tutorials and Demos:
+          - scope/tutorials/index.md
+          - Instrument your app: scope/tutorials/instrument-your-app.md
+          - Deploy SCOPE standalone: scope/tutorials/deploy-standalone.md
   - MAS-Lab:
       - mas-lab/index.md
-      - Architecture: mas-lab/architecture.md
+      - Integrations: mas-lab/integrations.md
       - Labs: mas-lab/labs.md
-      - Tutorials and Demos: mas-lab/tutorials.md
   - Getting Started: how-to/index.md
