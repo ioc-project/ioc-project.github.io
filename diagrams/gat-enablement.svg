@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1620 1300" width="1620" height="1300" font-family="Inter, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif"><rect x="0" y="0" width="100%" height="100%" fill="#000000"/>
+
+  <defs>
+    <marker id="aGrey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#657585"/>
+    </marker>
+    <marker id="aBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3B6BA3"/>
+    </marker>
+    <marker id="aOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#FFA91F"/>
+    </marker>
+    <marker id="aGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#65B168"/>
+    </marker>
+    <marker id="aNavy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#A1C5ED"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1620" height="1300" fill="#000000"/>
+
+  <!-- ================= TITLE ================= -->
+  <text x="60" y="38" font-size="25" font-weight="600" fill="#A3C3ED">GAT enablement — what each Cognition Engine binds</text>
+  <text x="60" y="62" font-size="13.5" fill="#7F8FA4">The Cognition Fabric exposes three API surfaces. A CE's capability is determined by which surfaces it binds: read-only alone can detect, but only the Enforcing surface can act.</text>
+
+  <!-- ================= COGNITION FABRIC ================= -->
+  <rect x="60" y="90" width="1420" height="400" rx="14" fill="#01131B" stroke="#17BFFF" stroke-width="2.5"/>
+  <text x="82" y="120" font-size="16" font-weight="600" fill="#7FD2F4">Cognition Fabric (CF)</text>
+  <text x="82" y="138" font-size="10.5" font-style="italic" fill="#5999B5">owned by Cognition Fabric for Scaling</text>
+
+  <rect x="96" y="150" width="1368" height="80" rx="10" fill="#73B0E1"/>
+  <text x="780" y="180" font-size="15.5" font-weight="600" fill="#000000" text-anchor="middle">Observability / SCOPE</text>
+  <text x="780" y="206" font-size="11.5" fill="#152E42" text-anchor="middle">collects MAS traces  ·  reconstructs trajectories  ·  builds semantic metrics</text>
+
+  <line x1="780" y1="232" x2="780" y2="262" stroke="#A1C5ED" stroke-width="2.5" marker-end="url(#aNavy)"/>
+
+  <rect x="96" y="264" width="1368" height="210" rx="11" fill="#000000" stroke="#176480" stroke-width="1.5"/>
+  <text x="780" y="290" font-size="14" font-weight="600" fill="#7FD2F4" text-anchor="middle">Cognition Fabric APIs</text>
+
+  <rect x="116" y="300" width="430" height="158" rx="9" fill="#051A30" stroke="#2B5480" stroke-width="2"/>
+  <text x="331" y="336" font-size="16" font-weight="600" fill="#A3C3ED" text-anchor="middle">Analytics APIs</text>
+  <text x="331" y="360" font-size="12" font-weight="600" fill="#6F96C0" text-anchor="middle">read-only</text>
+  <text x="331" y="392" font-size="11" fill="#6F96C0" text-anchor="middle">MAS traces · metrics · trajectories</text>
+  <text x="331" y="424" font-size="10" font-style="italic" fill="#5F83A5" text-anchor="middle">observes; cannot touch the MAS</text>
+
+  <rect x="565" y="300" width="430" height="158" rx="9" fill="#FFB40F" stroke="#FFC147" stroke-width="2"/>
+  <text x="780" y="336" font-size="16" font-weight="600" fill="#FFEBC2" text-anchor="middle">Active APIs</text>
+  <text x="780" y="360" font-size="12" font-weight="600" fill="#FFE7A5" text-anchor="middle">interactive</text>
+  <text x="780" y="392" font-size="11" fill="#FFE7A5" text-anchor="middle">agent interrogation · tool calls</text>
+  <text x="780" y="424" font-size="10" font-style="italic" fill="#EFD694" text-anchor="middle">can ask and can call; cannot block</text>
+
+  <rect x="1014" y="300" width="430" height="158" rx="9" fill="#60943F" stroke="#88BD70" stroke-width="2"/>
+  <text x="1229" y="336" font-size="16" font-weight="600" fill="#C2E5B8" text-anchor="middle">Enforcing APIs</text>
+  <text x="1229" y="360" font-size="12" font-weight="600" fill="#B0D9A3" text-anchor="middle">control</text>
+  <text x="1229" y="392" font-size="11" fill="#B0D9A3" text-anchor="middle">programs the in-path AgentBridge</text>
+  <text x="1229" y="424" font-size="10" font-style="italic" fill="#A4D194" text-anchor="middle">the only surface that can block</text>
+
+  <!-- ================= API RAILS ================= -->
+  <line x1="280" y1="460" x2="280" y2="520" stroke="#3B6BA3" stroke-width="2.5"/>
+  <line x1="760" y1="460" x2="760" y2="546" stroke="#FFA91F" stroke-width="2.5"/>
+  <line x1="1150" y1="460" x2="1150" y2="572" stroke="#65B168" stroke-width="2.5"/>
+
+  <line x1="180" y1="520" x2="1280" y2="520" stroke="#3B6BA3" stroke-width="3"/>
+  <line x1="180" y1="546" x2="1580" y2="546" stroke="#FFA91F" stroke-width="3"/>
+  <line x1="180" y1="572" x2="1520" y2="572" stroke="#65B168" stroke-width="3"/>
+
+  <text x="172" y="524" font-size="10" font-weight="600" fill="#6F96C0" text-anchor="end">Analytics</text>
+  <text x="172" y="550" font-size="10" font-weight="600" fill="#EFBF75" text-anchor="end">Active</text>
+  <text x="172" y="576" font-size="10" font-weight="600" fill="#B0D9A3" text-anchor="end">Enforcing</text>
+
+  <!-- ======== taps : CE 1 ======== -->
+  <line x1="176" y1="520" x2="176" y2="616" stroke="#3B6BA3" stroke-width="2" marker-end="url(#aBlue)"/>
+  <circle cx="176" cy="520" r="5" fill="#3B6BA3"/>
+  <line x1="334" y1="572" x2="334" y2="616" stroke="#65B168" stroke-width="2" marker-end="url(#aGreen)"/>
+  <circle cx="334" cy="572" r="5" fill="#65B168"/>
+
+  <!-- ======== taps : CE 2 ======== -->
+  <line x1="526" y1="520" x2="526" y2="616" stroke="#3B6BA3" stroke-width="2" marker-end="url(#aBlue)"/>
+  <circle cx="526" cy="520" r="5" fill="#3B6BA3"/>
+  <line x1="605" y1="546" x2="605" y2="616" stroke="#FFA91F" stroke-width="2" marker-end="url(#aOrange)"/>
+  <circle cx="605" cy="546" r="5" fill="#FFA91F"/>
+  <line x1="684" y1="572" x2="684" y2="616" stroke="#65B168" stroke-width="2" marker-end="url(#aGreen)"/>
+  <circle cx="684" cy="572" r="5" fill="#65B168"/>
+
+  <!-- ======== taps : CE 3 ======== -->
+  <line x1="876" y1="520" x2="876" y2="616" stroke="#3B6BA3" stroke-width="2" marker-end="url(#aBlue)"/>
+  <circle cx="876" cy="520" r="5" fill="#3B6BA3"/>
+  <line x1="1034" y1="572" x2="1034" y2="616" stroke="#65B168" stroke-width="2" marker-end="url(#aGreen)"/>
+  <circle cx="1034" cy="572" r="5" fill="#65B168"/>
+
+  <!-- ======== taps : CE 4 ======== -->
+  <line x1="1226" y1="520" x2="1226" y2="616" stroke="#3B6BA3" stroke-width="2" marker-end="url(#aBlue)"/>
+  <circle cx="1226" cy="520" r="5" fill="#3B6BA3"/>
+  <line x1="1305" y1="546" x2="1305" y2="616" stroke="#FFA91F" stroke-width="2" marker-end="url(#aOrange)"/>
+  <circle cx="1305" cy="546" r="5" fill="#FFA91F"/>
+
+  <!-- ================= COGNITION ENGINES ================= -->
+  <rect x="96" y="618" width="318" height="162" rx="11" fill="#0E1608" stroke="#65964F" stroke-width="2.5"/>
+  <text x="255" y="652" font-size="15" font-weight="600" fill="#B1D8AA" text-anchor="middle">GAT CE</text>
+  <text x="255" y="675" font-size="11.5" fill="#A4D194" text-anchor="middle">Detection + Enforcement</text>
+  <text x="112" y="706" font-size="9" font-weight="600" fill="#657585">BINDS</text>
+  <rect x="143" y="712" width="66" height="28" rx="6" fill="#051A30" stroke="#2B5480" stroke-width="1.5"/>
+  <text x="176" y="731" font-size="10" font-weight="600" fill="#A3C3ED" text-anchor="middle">ANL</text>
+  <rect x="222" y="712" width="66" height="28" rx="6" fill="#0E1113"/>
+  <text x="255" y="731" font-size="10" fill="#3A484F" text-anchor="middle">ACT</text>
+  <rect x="301" y="712" width="66" height="28" rx="6" fill="#60943F" stroke="#88BD70" stroke-width="1.5"/>
+  <text x="334" y="731" font-size="10" font-weight="600" fill="#C2E5B8" text-anchor="middle">ENF</text>
+  <text x="255" y="763" font-size="9.5" font-style="italic" fill="#758291" text-anchor="middle">sees a pattern, then blocks it</text>
+
+  <rect x="446" y="618" width="318" height="162" rx="11" fill="#0E1608" stroke="#65964F" stroke-width="2.5"/>
+  <text x="605" y="652" font-size="15" font-weight="600" fill="#B1D8AA" text-anchor="middle">GAT CE</text>
+  <text x="605" y="675" font-size="11.5" fill="#A4D194" text-anchor="middle">Investigative + Enforce</text>
+  <text x="462" y="706" font-size="9" font-weight="600" fill="#657585">BINDS</text>
+  <rect x="493" y="712" width="66" height="28" rx="6" fill="#051A30" stroke="#2B5480" stroke-width="1.5"/>
+  <text x="526" y="731" font-size="10" font-weight="600" fill="#A3C3ED" text-anchor="middle">ANL</text>
+  <rect x="572" y="712" width="66" height="28" rx="6" fill="#FFB40F" stroke="#FFC147" stroke-width="1.5"/>
+  <text x="605" y="731" font-size="10" font-weight="600" fill="#FFEBC2" text-anchor="middle">ACT</text>
+  <rect x="651" y="712" width="66" height="28" rx="6" fill="#60943F" stroke="#88BD70" stroke-width="1.5"/>
+  <text x="684" y="731" font-size="10" font-weight="600" fill="#C2E5B8" text-anchor="middle">ENF</text>
+  <text x="605" y="763" font-size="9.5" font-style="italic" fill="#758291" text-anchor="middle">can interrogate before deciding</text>
+
+  <rect x="796" y="618" width="318" height="162" rx="11" fill="#0E1608" stroke="#65964F" stroke-width="2.5"/>
+  <text x="955" y="652" font-size="15" font-weight="600" fill="#B1D8AA" text-anchor="middle">GAT CE</text>
+  <text x="955" y="675" font-size="11.5" fill="#A4D194" text-anchor="middle">Authorization + Enforce</text>
+  <text x="812" y="706" font-size="9" font-weight="600" fill="#657585">BINDS</text>
+  <rect x="843" y="712" width="66" height="28" rx="6" fill="#051A30" stroke="#2B5480" stroke-width="1.5"/>
+  <text x="876" y="731" font-size="10" font-weight="600" fill="#A3C3ED" text-anchor="middle">ANL</text>
+  <rect x="922" y="712" width="66" height="28" rx="6" fill="#0E1113"/>
+  <text x="955" y="731" font-size="10" fill="#3A484F" text-anchor="middle">ACT</text>
+  <rect x="1001" y="712" width="66" height="28" rx="6" fill="#60943F" stroke="#88BD70" stroke-width="1.5"/>
+  <text x="1034" y="731" font-size="10" font-weight="600" fill="#C2E5B8" text-anchor="middle">ENF</text>
+  <text x="955" y="763" font-size="9.5" font-style="italic" fill="#758291" text-anchor="middle">admits or refuses each attempt</text>
+
+  <rect x="1146" y="618" width="318" height="162" rx="11" fill="#201801" stroke="#C59526" stroke-width="2.5"/>
+  <text x="1305" y="652" font-size="15" font-weight="600" fill="#FFD794" text-anchor="middle">COG CE</text>
+  <text x="1305" y="675" font-size="11.5" fill="#EFBF75" text-anchor="middle">Knowledge synthesis</text>
+  <text x="1162" y="706" font-size="9" font-weight="600" fill="#657585">BINDS</text>
+  <rect x="1193" y="712" width="66" height="28" rx="6" fill="#051A30" stroke="#2B5480" stroke-width="1.5"/>
+  <text x="1226" y="731" font-size="10" font-weight="600" fill="#A3C3ED" text-anchor="middle">ANL</text>
+  <rect x="1272" y="712" width="66" height="28" rx="6" fill="#FFB40F" stroke="#FFC147" stroke-width="1.5"/>
+  <text x="1305" y="731" font-size="10" font-weight="600" fill="#FFEBC2" text-anchor="middle">ACT</text>
+  <rect x="1351" y="712" width="66" height="28" rx="6" fill="#0E1113"/>
+  <text x="1384" y="731" font-size="10" fill="#3A484F" text-anchor="middle">ENF</text>
+  <text x="1305" y="763" font-size="9.5" font-style="italic" fill="#758291" text-anchor="middle">amplifies; never blocks</text>
+
+  <!-- ================= COGNITION STORE ================= -->
+  <line x1="255" y1="782" x2="520" y2="824" stroke="#657585" stroke-width="2" marker-end="url(#aGrey)"/>
+  <line x1="605" y1="782" x2="680" y2="824" stroke="#657585" stroke-width="2" marker-end="url(#aGrey)"/>
+  <line x1="955" y1="782" x2="900" y2="824" stroke="#657585" stroke-width="2" marker-end="url(#aGrey)"/>
+  <line x1="1305" y1="782" x2="1080" y2="824" stroke="#657585" stroke-width="2" marker-end="url(#aGrey)"/>
+
+  <rect x="460" y="826" width="700" height="96" rx="12" fill="#A1C5ED"/>
+  <text x="810" y="864" font-size="17" font-weight="600" fill="#000000" text-anchor="middle">Cognition Store</text>
+  <text x="810" y="890" font-size="11.5" fill="#1F3D57" text-anchor="middle">shared CE findings — one engine's conclusion is another's input</text>
+  <text x="810" y="908" font-size="10" font-style="italic" fill="#3F6080" text-anchor="middle">this is what makes the engines a fabric rather than four separate detectors</text>
+
+  <!-- ================= MAS ================= -->
+  <rect x="60" y="976" width="1420" height="280" rx="14" fill="#000204" stroke="#384E65" stroke-width="2" stroke-dasharray="9 6"/>
+  <text x="82" y="1006" font-size="15" font-weight="600" fill="#7F8FA4">Multi-Agent System (MAS)</text>
+
+  <rect x="120" y="1020" width="200" height="64" rx="10" fill="#4083E5"/>
+  <text x="220" y="1059" font-size="15" font-weight="600" fill="#000000" text-anchor="middle">Agent 1</text>
+  <rect x="380" y="1020" width="200" height="64" rx="10" fill="#4083E5"/>
+  <text x="480" y="1059" font-size="15" font-weight="600" fill="#000000" text-anchor="middle">Agent 2</text>
+  <rect x="640" y="1020" width="200" height="64" rx="10" fill="#4083E5"/>
+  <text x="740" y="1059" font-size="15" font-weight="600" fill="#000000" text-anchor="middle">Agent 3</text>
+
+  <line x1="324" y1="1052" x2="376" y2="1052" stroke="#17BFFF" stroke-width="3" marker-start="url(#aBlue)" marker-end="url(#aBlue)"/>
+  <line x1="584" y1="1052" x2="636" y2="1052" stroke="#17BFFF" stroke-width="3" marker-start="url(#aBlue)" marker-end="url(#aBlue)"/>
+
+  <line x1="220" y1="1086" x2="220" y2="1126" stroke="#657585" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#aGrey)"/>
+  <line x1="480" y1="1086" x2="480" y2="1126" stroke="#657585" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#aGrey)"/>
+  <line x1="740" y1="1086" x2="740" y2="1126" stroke="#657585" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#aGrey)"/>
+  <text x="252" y="1112" font-size="10" fill="#758291">L9 messages</text>
+
+  <rect x="120" y="1130" width="840" height="90" rx="11" fill="#284317" stroke="#88BD70" stroke-width="2.5"/>
+  <text x="540" y="1158" font-size="14.5" font-weight="600" fill="#C2E5B8" text-anchor="middle">AgentBridge (in path)</text>
+  <text x="540" y="1182" font-size="11" fill="#B0D9A3" text-anchor="middle">mediates L9 conversations  ·  mediates tool calls</text>
+  <text x="540" y="1202" font-size="11" font-weight="600" fill="#B0D9A3" text-anchor="middle">can block or modify per GAT disposition</text>
+
+  <rect x="1240" y="1140" width="200" height="70" rx="10" fill="#919191"/>
+  <text x="1340" y="1182" font-size="15" font-weight="600" fill="#000000" text-anchor="middle">TOOLS</text>
+
+  <line x1="964" y1="1175" x2="1236" y2="1175" stroke="#657585" stroke-width="2.5" marker-end="url(#aGrey)"/>
+
+  <!-- ================= CONTROL COUPLINGS ================= -->
+  <path d="M1520,572 L1520,1108 L900,1108 L900,1126" fill="none" stroke="#65B168" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#aGreen)"/>
+  <text x="1506" y="860" font-size="11" font-weight="600" fill="#A4D194" text-anchor="middle" transform="rotate(-90 1506 860)">block / modify</text>
+
+  <path d="M1580,546 L1580,1175 L1444,1175" fill="none" stroke="#FFA91F" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#aOrange)"/>
+  <text x="1566" y="880" font-size="11" font-weight="600" fill="#EFBF75" text-anchor="middle" transform="rotate(-90 1566 880)">GAT-initiated tool calls</text>
+
+<!-- ioc:dark sans="Helvetica Neue, Helvetica, Arial, sans-serif" --></svg>

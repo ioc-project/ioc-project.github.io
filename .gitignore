@@ -1,0 +1,6 @@
+.venv/
+site/
+_site/
+docs/assets/diagrams/
+docs/cognition-protocols/concord/spec/CONCORD-SPEC.html
+.DS_Store

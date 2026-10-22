@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 1000" width="1560" height="1000" id="ioc-simplified" role="img" aria-label="Simplified IoC architecture">
+<title>Simplified IoC architecture</title>
+<defs>
+<marker id="m-up" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#E8A020"/></marker>
+<marker id="m-dn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2A7BE0"/></marker>
+<marker id="m-nx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#A04BC0"/></marker>
+<marker id="m-hr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#98A2B4"/></marker>
+<marker id="m-rev" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M10 0 L0 5 L10 10 z" fill="#E8A020"/></marker>
+</defs>
+<rect width="1560" height="1000" fill="#0B0B12"/>
+<rect x="36" y="32" width="46" height="888" rx="12" fill="#63A33F"/>
+<text transform="translate(66,476) rotate(-90)" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#FFFFFF" letter-spacing="2.4">MAS-LAB</text>
+<text transform="translate(66,764) rotate(-90)" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11" fill="#EAF6E1" letter-spacing="1.2">experiment · benchmark · verify</text>
+<g class="planned" data-planned="cognition-engines">
+<rect x="108" y="32" width="230" height="25" rx="6" fill="#A04BC0"/>
+<text x="121" y="49" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1.1">COGNITION ENGINES (CEs)</text>
+<rect x="108" y="68" width="1192" height="104" rx="10" fill="#241430" stroke="#B562D0" stroke-width="1.4"/>
+<rect x="136" y="90" width="260" height="62" rx="7" fill="#0F1018" stroke="#B562D0" stroke-width="1.3"/>
+<text x="150" y="113" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#EAD2F5">COGs</text>
+<text x="150" y="131" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#98A2B4">Cognition Amplifiers</text>
+<rect x="420" y="90" width="260" height="62" rx="7" fill="#0F1018" stroke="#B562D0" stroke-width="1.3"/>
+<text x="434" y="113" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#EAD2F5">GATs</text>
+<text x="434" y="131" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#98A2B4">Guardrails / Governance</text>
+<text x="712" y="112" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#98A2B4">Judgment tier. Reads the fabric through the</text>
+<text x="712" y="129" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#98A2B4">three API tiers and publishes its findings back,</text>
+<text x="712" y="146" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#98A2B4">so one engine’s conclusion becomes another’s input.</text>
+<path d="M640 178 L640 226" stroke="#A04BC0" stroke-width="2.4" marker-end="url(#m-nx)"/>
+<path d="M676 226 L676 178" stroke="#A04BC0" stroke-width="2.4" marker-end="url(#m-nx)"/>
+<text x="694" y="207" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11" fill="#A04BC0">findings out, context in</text>
+</g>
+<rect x="108" y="196" width="169" height="25" rx="6" fill="#E8A020"/>
+<text x="121" y="213" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1.1">COGNITION FABRIC</text>
+<rect x="108" y="232" width="1192" height="248" rx="10" fill="#2A2012" stroke="#F0A020" stroke-width="1.4"/>
+<g class="planned" data-planned="cf-planes">
+<rect x="136" y="258" width="360" height="44" rx="7" fill="#0F1018" stroke="#F0A020" stroke-width="1.3"/>
+<text x="316.0" y="286" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#F7DCAE">CF APIs</text>
+<rect x="512" y="258" width="400" height="44" rx="7" fill="#0F1018" stroke="#F0A020" stroke-width="1.3"/>
+<text x="712.0" y="286" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#F7DCAE">Management plane · policy store</text>
+<rect x="928" y="258" width="352" height="44" rx="7" fill="#0F1018" stroke="#F0A020" stroke-width="1.3"/>
+<text x="1104.0" y="286" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#F7DCAE">CFN sync &amp; routing</text>
+</g>
+<rect x="136" y="318" width="1144" height="146" rx="10" fill="#2A2012" stroke="#F0A020" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="156" y="342" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#F7DCAE" letter-spacing="1.1">SCOPE + PLATFORM ENGINES</text>
+<text x="374" y="342" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11" fill="#98A2B4">— comprehension and sensing, inside the fabric</text>
+<rect x="156" y="354" width="480" height="94" rx="7" fill="#0F1018" stroke="#F0A020" stroke-width="1.3"/>
+<text x="170" y="375" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#F7DCAE">Platform Engine</text>
+<text x="170" y="391" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="10.5" fill="#98A2B4">the sensing substrate — one engine, both halves</text>
+<rect x="172" y="406" width="8" height="8" rx="2" fill="#F0A020"/>
+<text x="188" y="414" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#E9EDF4">detects — semantic, symbolic, RCA, waste</text>
+<rect x="172" y="428" width="8" height="8" rx="2" fill="#F0A020"/>
+<text x="188" y="436" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#E9EDF4">and fires the protocol response</text>
+<rect x="660" y="354" width="600" height="94" rx="7" fill="#0F1018" stroke="#F0A020" stroke-width="1.3"/>
+<text x="674" y="375" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#F7DCAE">KG + Cognition store</text>
+<text x="674" y="391" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="10.5" fill="#98A2B4">consumed by the Cognition Engines</text>
+<rect x="676" y="406" width="8" height="8" rx="2" fill="#F0A020"/>
+<text x="692" y="414" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#E9EDF4">Trajectory recomposition · knowledge graph</text>
+<rect x="676" y="428" width="8" height="8" rx="2" fill="#F0A020"/>
+<text x="692" y="436" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#E9EDF4">Persisted cognitive insight</text>
+<rect x="108" y="504" width="134" height="25" rx="6" fill="#2A7BE0"/>
+<text x="121" y="521" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1.1">COGNITION PROTOCOLS</text>
+<rect x="108" y="540" width="1192" height="148" rx="10" fill="#111C2F" stroke="#3C86E4" stroke-width="1.4"/>
+<rect x="136" y="564" width="560" height="62" rx="7" fill="#0F1018" stroke="#3C86E4" stroke-width="1.3"/>
+<text x="150" y="587" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#CFE2FA">ACCORD</text>
+<text x="150" y="605" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#98A2B4">shared intent, by coverage</text>
+<rect x="720" y="564" width="560" height="62" rx="7" fill="#0F1018" stroke="#3C86E4" stroke-width="1.3"/>
+<text x="734" y="587" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#CFE2FA">CONCORD</text>
+<text x="734" y="605" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#98A2B4">decision under residual conflict</text>
+<text x="136" y="662" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" fill="#98A2B4">Insertion — protocol skills in the agents (invocation is a model decision) · protocol skills in the AgentBridge (deterministic, preferred)</text>
+<rect x="108" y="712" width="1192" height="40" rx="8" fill="#2A7BE0"/>
+<text x="704.0" y="737" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" fill="#FFFFFF" letter-spacing="1.8">A2A  ·  AGENTBRIDGE  ·  SLIM GROUP CHANNELS  ·  MCP</text>
+<rect x="108" y="776" width="230" height="25" rx="6" fill="#4A5263"/>
+<text x="121" y="793" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1.1">MULTI-AGENT SYSTEM</text>
+<rect x="108" y="812" width="1192" height="108" rx="10" fill="#14141F" stroke="#33364A" stroke-width="1.4" stroke-dasharray="7 5"/>
+<rect x="136" y="826" width="514" height="24" rx="6" fill="#5A6069"/>
+<text x="393" y="843" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1.1">HARNESS</text>
+<rect x="136" y="856" width="250" height="44" rx="7" fill="#0F1018" stroke="#33364A" stroke-width="1.3"/>
+<text x="150" y="884" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#E9EDF4">Agent 1</text>
+<rect x="304" y="866" width="68" height="24" rx="12" fill="none" stroke="#3C86E4" stroke-width="1.2"/>
+<text x="338" y="882" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="10.5" fill="#CFE2FA">protocol skill</text>
+<rect x="400" y="856" width="250" height="44" rx="7" fill="#0F1018" stroke="#33364A" stroke-width="1.3"/>
+<text x="414" y="884" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#E9EDF4">Agent 2</text>
+<rect x="568" y="866" width="68" height="24" rx="12" fill="none" stroke="#3C86E4" stroke-width="1.2"/>
+<text x="602" y="882" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="10.5" fill="#CFE2FA">protocol skill</text>
+<rect x="664" y="856" width="250" height="44" rx="7" fill="#0F1018" stroke="#33364A" stroke-width="1.3"/>
+<text x="678" y="884" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#E9EDF4">Agent 3</text>
+<rect x="832" y="866" width="68" height="24" rx="12" fill="none" stroke="#3C86E4" stroke-width="1.2"/>
+<text x="866" y="882" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="10.5" fill="#CFE2FA">protocol skill</text>
+<rect x="1030" y="856" width="250" height="44" rx="7" fill="#0F1018" stroke="#33364A" stroke-width="1.3"/>
+<text x="1044" y="884" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#E9EDF4">Agent n</text>
+<rect x="1198" y="866" width="68" height="24" rx="12" fill="none" stroke="#3C86E4" stroke-width="1.2"/>
+<text x="1232" y="882" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="10.5" fill="#CFE2FA">protocol skill</text>
+<text x="952" y="884" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="15" fill="#98A2B4">…</text>
+<path d="M1340 400 L1340 600" stroke="#2A7BE0" stroke-width="3.2" marker-end="url(#m-dn)"/>
+<text transform="translate(1356,500) rotate(-90)" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="600" fill="#2A7BE0">protocol trigger</text>
+<path d="M1400 806 L1400 486" stroke="#E8A020" stroke-width="3.2" marker-end="url(#m-up)"/>
+<text transform="translate(1387,646.0) rotate(-90)" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="600" fill="#E8A020">telemetry</text>
+<g class="planned" data-planned="enforcement">
+<path d="M1440 486 L1440 806" stroke="#E8A020" stroke-width="3.2" marker-end="url(#m-up)"/>
+<text transform="translate(1427,646.0) rotate(-90)" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="600" fill="#E8A020">enforcement</text>
+</g>
+<g class="planned" data-planned="interaction">
+<path d="M1480 486 L1480 806" stroke="#E8A020" stroke-width="3.2" marker-end="url(#m-up)" marker-start="url(#m-rev)"/>
+<text transform="translate(1467,646.0) rotate(-90)" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="11.5" font-weight="600" fill="#E8A020">interaction</text>
+</g>
+<text transform="translate(1502,646.0) rotate(-90)" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="10" font-weight="600" fill="#98A2B4" letter-spacing="1.4">CF ↔ MAS</text>
+<line x1="36" y1="944" x2="1524" y2="944" stroke="#2A2A3B" stroke-width="1"/>
+<rect x="40" y="966" width="14" height="14" rx="3" fill="#2A7BE0"/>
+<text x="62" y="978" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="12" fill="#98A2B4">Cognition Protocols · A2A · AgentBridge</text>
+<rect x="297.70000000000005" y="966" width="14" height="14" rx="3" fill="#E8A020"/>
+<text x="319.70000000000005" y="978" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="12" fill="#98A2B4">Cognition Fabric — SCOPE + Platform Engines</text>
+<g class="planned" data-planned="cognition-engines-key">
+<rect x="610.6000000000001" y="966" width="14" height="14" rx="3" fill="#A04BC0"/>
+<text x="632.6000000000001" y="978" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="12" fill="#98A2B4">Cognition Engines (CEs)</text>
+</g>
+<rect x="799.3000000000002" y="966" width="14" height="14" rx="3" fill="#63A33F"/>
+<text x="821.3000000000002" y="978" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="12" fill="#98A2B4">MAS-Lab</text>
+<rect x="877.6000000000001" y="966" width="14" height="14" rx="3" fill="#4A5263"/>
+<text x="899.6000000000001" y="978" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="12" fill="#98A2B4">MAS</text>
+</svg>
