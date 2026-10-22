@@ -37,7 +37,7 @@ and what has been agreed.
 nothing to correct. The fabric can observe a disagreement and an engine can name it, but
 only a protocol can re-open the question among the agents and close it again.
 
-[:octicons-arrow-right-24: Cognition Protocols in detail](../cognition-protocols/index.md)
+[:octicons-arrow-right-24: Cognition Protocols in detail](https://ioc-project.github.io/cognition-protocols/)
 
 ### How Cognition Protocols are inserted
 

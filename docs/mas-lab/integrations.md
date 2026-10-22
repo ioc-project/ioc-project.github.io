@@ -46,7 +46,7 @@ two roles in the conversation:
 | **Initiator** | The agent that leads, usually the one that owns the task | Open the exchange, collect the answers, and close it with a result |
 | **Receiver** | Every agent taking part | Recognise the exchange and reply in the expected form |
 
-[Cognition Protocols](../cognition-protocols/index.md) explains what each protocol
+[Cognition Protocols](https://ioc-project.github.io/cognition-protocols/) explains what each protocol
 does. [Installation](https://ioc-project.github.io/cognition-protocols/protocols/installation/) shows how to
 add the skills to any agent, inside or outside MAS-Lab.
 

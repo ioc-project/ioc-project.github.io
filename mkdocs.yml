@@ -82,7 +82,7 @@ nav:
       - index.md
       - Motivation: overview/motivation.md
       - Architecture: overview/architecture.md
-  - Cognition Protocols: cognition-protocols/index.md
+  - Cognition Protocols: https://ioc-project.github.io/cognition-protocols/
   - SCOPE:
       - scope/index.md
       - Instrumentation/Ingestion: scope/ingestion.md
