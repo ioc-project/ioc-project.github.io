@@ -1,3 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CONCORD Protocol Specification</title>
+  <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
+  <script class="remove">
+    var respecConfig = {
+      specStatus:  "unofficial",
+      shortName:   "concord",
+      title:       "CONCORD Protocol Specification",
+      subtitle:    "Version 0.2.0",
+      github:      "https://github.com/cisco-eti/ioc-core-l9-skills",
+      editors: [
+        { name: "Outshift" }
+      ],
+      xref: false,
+      lint: { "no-unused-dfns": false },
+    };
+  </script>
+</head>
+<body>
+<!--
+  The markdown is stored in a <script type="text/markdown"> element.
+  The browser does not HTML-parse its content, so XML tags inside code
+  blocks and inline code are never turned into DOM elements.
+  The inline script below runs synchronously during parsing (before
+  DOMContentLoaded) and wires a Blob URL to a data-include section,
+  which ReSpec fetches and converts to HTML.
+-->
+<script type="text/markdown" id="spec-source">
 # CONCORD Protocol Specification
 
 Version 0.2.0
@@ -314,3 +345,18 @@ A score is marked MISSING for an agent/candidate pair when the agent fails to re
 5. **Messages are sent verbatim.** The initiator sends message content exactly as produced — no preamble, rewording, or added reply template.
 6. **Run to complete.** The protocol runs until COMMIT is reached; no partial outcomes.
 7. **Announcing is not acting.** Stating that an action will be taken is not a substitute for taking it.
+
+</script>
+<section id="spec-body"></section>
+<script class="remove">
+  (function () {
+    var md  = document.getElementById("spec-source").textContent;
+    var url = URL.createObjectURL(new Blob([md], {type: "text/markdown"}));
+    var sec = document.getElementById("spec-body");
+    sec.setAttribute("data-include", url);
+    sec.setAttribute("data-include-format", "markdown");
+    document.getElementById("spec-source").remove();
+  })();
+</script>
+</body>
+</html>
