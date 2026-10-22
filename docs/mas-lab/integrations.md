@@ -47,7 +47,7 @@ two roles in the conversation:
 | **Receiver** | Every agent taking part | Recognise the exchange and reply in the expected form |
 
 [Cognition Protocols](../cognition-protocols/index.md) explains what each protocol
-does. [Installation](https://ioc-project.github.io/cognition-protocols/concord/installation/) shows how to
+does. [Installation](https://ioc-project.github.io/cognition-protocols/protocols/installation/) shows how to
 add the skills to any agent, inside or outside MAS-Lab.
 
 ### Why develop a skill in MAS-Lab
@@ -82,7 +82,7 @@ protocol adds. The same method tests ACCORD alone, CONCORD alone, or both togeth
 - [Tutorial 6 — Agent skills](https://outshift-open.github.io/mas-lab/tutorials/06-agent-skills/)
   shows how to write a skill and add it to agents.
 - [Labs](labs.md#l9-evaluation-labs) describes the protocol experiments in full.
-- [Benchmarks](https://ioc-project.github.io/cognition-protocols/benchmarks/) reports the results.
+- [Evaluation](https://ioc-project.github.io/cognition-protocols/evaluation/) reports the results.
 
 ## Runs come out for SCOPE
 

@@ -143,13 +143,13 @@ CONCORD checks that the plan suits every agent.
 
 A recorded run can be replayed instantly, with the same result every time and no
 language model, which makes it a good way to see the protocol at work. It is the
-source of the [worked example](https://ioc-project.github.io/cognition-protocols/concord/design/#worked-example)
+source of the [worked example](https://ioc-project.github.io/cognition-protocols/protocols/concord/design/#worked-example)
 in the CONCORD design. New measurements come from the MAS-Lab comparison above, or
 from running the example live.
 
-**Results.** [Benchmarks](https://ioc-project.github.io/cognition-protocols/benchmarks/) ·
-[ACCORD evaluation](https://ioc-project.github.io/cognition-protocols/accord/evaluation/) ·
-[CONCORD evaluation](https://ioc-project.github.io/cognition-protocols/concord/evaluation/)
+**Results.** [Evaluation](https://ioc-project.github.io/cognition-protocols/evaluation/) ·
+[ACCORD evaluation](https://ioc-project.github.io/cognition-protocols/evaluation/accord/) ·
+[CONCORD evaluation](https://ioc-project.github.io/cognition-protocols/evaluation/concord/)
 
 ## Cognitive-challenge labs
 
