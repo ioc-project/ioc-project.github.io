@@ -5,7 +5,7 @@ site_url: https://ioc-project.github.io/
 repo_url: https://github.com/ioc-project/ioc-project.github.io
 repo_name: ioc-project/ioc-project.github.io
 edit_uri: edit/main/docs/
-copyright: Cisco ETI — Internet of Cognition. Internal draft.
+copyright: Internet of Cognition Project. Open specification.
 
 theme:
   name: material
