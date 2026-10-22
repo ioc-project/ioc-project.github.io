@@ -105,5 +105,5 @@ analysis composable.
 
 - [AGNTCY Observe SDK](https://github.com/agntcy/observe) — the reference instrumentation
 - [Insight module for agentic systems](https://github.com/outshift-open/insight-module-for-agentic-systems/)
-- [`ioc-project/ioc-scope`](https://github.com/ioc-project/ioc-scope) — SCOPE repo, under Apache 2.0 license
+- [`ioc-project/scope`](https://github.com/ioc-project/scope) — SCOPE repo, under Apache 2.0 license
 - [Instrumenting a MAS: tutorial](tutorials/instrument-your-app.md)

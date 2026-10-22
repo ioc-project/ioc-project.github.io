@@ -19,7 +19,7 @@ controllable operations at enterprise scale. That decomposes into three function
 | **3. Recommend** | Turn that account into actionable remediation, so agentic systems can run safely and reliably in production |
 
 SCOPE is released as **open source** software under the Apache 2.0 license, at
-[`ioc-project/ioc-scope`](https://github.com/ioc-project/ioc-scope).
+[`ioc-project/scope`](https://github.com/ioc-project/scope).
 
 ## How SCOPE works
 
@@ -91,7 +91,7 @@ ontologies, which share a single namespace.
 | **Insight** | intelligence | Rendered, catalog-templated insights attached to a target graph node |
 
 The ontology is published, along with documentation and visualisation, at
-[ioc-project.github.io/ioc-scope/ontologies](https://ioc-project.io/ioc-scope/ontologies.html).
+[ontology sources](https://github.com/ioc-project/scope/tree/main/ontology/src/scope_ontology).
 
 ## Positioning
 
@@ -132,6 +132,6 @@ Protocols or any other IoC component.
 
 ## Source material
 
-- [`ioc-project/ioc-scope`](https://github.com/ioc-project/ioc-scope) — SCOPE repo, under Apache 2.0 license.
-- [Ontology documentation](https://ioc-project.github.io/ioc-project/ioc-scope/ontologies)
+- [`ioc-project/scope`](https://github.com/ioc-project/scope) — SCOPE repo, under Apache 2.0 license.
+- [Ontology documentation](https://ioc-project.github.io/ioc-project/scope/ontologies)
 - [AGNTCY Observe SDK](https://github.com/agntcy/observe) — the reference instrumentation

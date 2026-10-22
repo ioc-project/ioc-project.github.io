@@ -36,7 +36,7 @@ Agent application + Observe SDK
 ```
 
 Use the [SDK setup guide](https://github.com/agntcy/observe/blob/main/GETTING-STARTED.md)
-for application instrumentation and the [SCOPE repository](https://github.com/ioc-project/ioc-scope)
+for application instrumentation and the [SCOPE repository](https://github.com/ioc-project/scope)
 for the analysis deployment. Other OpenTelemetry emitters are admissible through
 the [ingestion pipeline](../ingestion.md#ingestion); the SDK is the reference,
 not a prerequisite for adopting IoC.
