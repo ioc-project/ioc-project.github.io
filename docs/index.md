@@ -125,7 +125,7 @@ Three components have their own sections. The **Cognition Fabric** and the
     **ACCORD** establishes shared intent by coverage; **CONCORD** selects an outcome
     under the conflict that remains.
 
-    [:octicons-arrow-right-24: Cognition Protocols](cognition-protocols/index.md)
+    [:octicons-arrow-right-24: Cognition Protocols](https://ioc-project.github.io/cognition-protocols/)
 
 -   :material-eye-outline: **SCOPE**
 
@@ -163,7 +163,7 @@ the system under MAS-Lab for benchmarking and validation.
 |---|---|
 | Why the project exists | [Motivation](overview/motivation.md) |
 | How the pieces fit together | [Overview → Architecture](overview/architecture.md) |
-| What agents actually exchange | [Cognition Protocols](cognition-protocols/index.md) |
+| What agents actually exchange | [Cognition Protocols](https://ioc-project.github.io/cognition-protocols/) |
 | How the system sees what happened | [SCOPE](scope/index.md) |
 | How the claims are measured | [MAS-Lab](mas-lab/index.md) |
 | How to adopt it in an existing MAS | [Getting Started](how-to/index.md) |
@@ -180,7 +180,7 @@ the system under MAS-Lab for benchmarking and validation.
 
 | Component | Tutorials & Demo |
 |---|---|
-| Cognition Protocols | [Tutorials and Demos](cognition-protocols/tutorials/index.md) |
+| Cognition Protocols | [Demos](https://ioc-project.github.io/cognition-protocols/demos/) |
 | SCOPE | [Tutorials and Demos](scope/tutorials/index.md) |
 | MAS-Lab | [Quickstart and tutorials](https://outshift-open.github.io/mas-lab/tutorials/) |
 | Adoption path across components | [Getting Started](how-to/index.md) |

@@ -65,9 +65,6 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
-hooks:
-  - scripts/hooks.py
-
 plugins:
   - search
 
@@ -85,27 +82,7 @@ nav:
       - index.md
       - Motivation: overview/motivation.md
       - Architecture: overview/architecture.md
-  - Cognition Protocols:
-      - cognition-protocols/index.md
-      - ACCORD:
-          - cognition-protocols/accord/index.md
-          - Design: cognition-protocols/accord/design.md
-          - Installation: cognition-protocols/accord/installation.md
-          - Evaluation: cognition-protocols/accord/evaluation.md
-      - CONCORD:
-          - cognition-protocols/concord/index.md
-          - Design: cognition-protocols/concord/design.md
-          - Installation: cognition-protocols/concord/installation.md
-          - Evaluation: cognition-protocols/concord/evaluation.md
-          - Specification: cognition-protocols/concord/specification.md
-      - Benchmarks: cognition-protocols/benchmarks.md
-      - Tutorials and Demos:
-          - cognition-protocols/tutorials/index.md
-          - Coding Architect Team: cognition-protocols/tutorials/coding-architect-team.md
-          - Hiddenbench: cognition-protocols/tutorials/hiddenbench.md
-          - E-Commerce: cognition-protocols/tutorials/e-commerce.md
-          - SRE Triage: cognition-protocols/tutorials/sre-triage.md
-          - Customer renewal discount: cognition-protocols/tutorials/customer-renewal-discount.md
+  - Cognition Protocols: https://ioc-project.github.io/cognition-protocols/
   - SCOPE:
       - scope/index.md
       - Instrumentation/Ingestion: scope/ingestion.md
