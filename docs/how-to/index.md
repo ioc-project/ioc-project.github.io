@@ -7,11 +7,12 @@ title: Getting Started
 <p class="eyebrow">Two ways to adopt IoC</p>
 
 There are two ways into the Internet of Cognition, and they answer different
-questions. **Run** puts IoC into a multi-agent system you operate. **Test** measures
-what it changes, before or alongside that.
+questions.
+**Run** puts IoC into a multi-agent system you operate.
+**Test** measures what it changes, before or alongside that.
 
-Neither depends on the other. A team that wants the benefit in production can start
-with Run; a team that needs evidence first can start with Test.
+Neither path requires the other. A team that wants the benefit in production can start
+with Run; a team that needs evidence of the benefits first can start with Test.
 
 <div class="grid cards" markdown>
 
@@ -55,7 +56,7 @@ structurally cannot see.
 | Component | What it adds | Start here |
 |---|---|---|
 | **Cognition Protocols** | ACCORD and CONCORD, deployed as skills in the agents or in the AgentBridge | [Cognition Protocols — Installation](https://ioc-project.github.io/cognition-protocols/protocols/installation/) |
-| **SCOPE** | Instrumentation, trajectory recomposition, analysis and explainability | [SCOPE — Tutorials and Demos](../scope/tutorials/index.md) |
+| **SCOPE** | Instrumentation, trajectory recomposition, detection of cognitive failures, analysis and explainability | [SCOPE — Getting Started](https://ioc-project.github.io/scope/tutorials/) |
 
 Done together, SCOPE is what tells you a cognitive failure happened and the protocols
 are what act on it.
@@ -91,8 +92,8 @@ evidence.
 | already run OpenTelemetry instrumentation | **Run**, beginning with SCOPE |
 | own the agents and want coordination benefit first | **Run**, beginning with the protocols |
 
-The two are not exclusive, and most teams end up with both: Test to establish what a
-change is worth, Run to put it in front of real traffic.
+The two are not exclusive, and most teams end up with both: Test to establish what
+a change is worth, Run to put it in front of real traffic.
 
 ## Related reading
 

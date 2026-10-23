@@ -65,7 +65,7 @@ A fabric that complements existing observability platforms to persist agentic
 context and cognitive insights. **SCOPE** sits inside it and supplies the
 comprehension layer: ingestion, normalization, the knowledge graph and the analysis
 that fills it. The fabric owns the runtime and the contracts;
-[SCOPE](../scope/index.md) owns what populates them.
+[SCOPE](https://ioc-project.github.io/scope/) owns what populates them.
 
 Because a single agent's telemetry never contains the collective behaviour, the
 fabric first **recomposes** the interaction:

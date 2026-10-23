@@ -55,7 +55,7 @@ allowing to iterate on the design of a MAS and quantifying the improvements (or 
 one version to another.
 
 The emergent class of failures is addressed by IoC with [Cognition Protocols](https://ioc-project.github.io/cognition-protocols/) for runtime
-coordination, detection built on the [SCOPE](../scope/index.md) observability substrate, and potentially
+coordination, detection built on the [SCOPE](https://ioc-project.github.io/scope/) observability substrate, and potentially
 [MAS-Lab](../mas-lab/index.md) to validate each claim.
 
 ## Source

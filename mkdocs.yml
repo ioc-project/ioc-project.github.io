@@ -81,17 +81,10 @@ nav:
       - Motivation: overview/motivation.md
       - Architecture: overview/architecture.md
   - Cognition Protocols: https://ioc-project.github.io/cognition-protocols/
-  - SCOPE:
-      - scope/index.md
-      - Instrumentation/Ingestion: scope/ingestion.md
-      - Analysis: scope/analysis.md
-      - Platform: scope/platform.md
-      - Tutorials and Demos:
-          - scope/tutorials/index.md
-          - Instrument your app: scope/tutorials/instrument-your-app.md
-          - Deploy SCOPE standalone: scope/tutorials/deploy-standalone.md
+  - SCOPE: https://ioc-project.github.io/scope/
   - MAS-Lab:
       - mas-lab/index.md
       - Integrations: mas-lab/integrations.md
       - Labs: mas-lab/labs.md
   - Getting Started: how-to/index.md
+  - Publications: publications/index.md

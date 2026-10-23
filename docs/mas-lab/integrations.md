@@ -88,7 +88,7 @@ protocol adds. The same method tests ACCORD alone, CONCORD alone, or both togeth
 
 ### What SCOPE reads
 
-[SCOPE](../scope/index.md) explains what a multi-agent system did. It reads
+[SCOPE](https://ioc-project.github.io/scope/) explains what a multi-agent system did. It reads
 **telemetry**: the standard monitoring data of the OpenTelemetry project. In
 telemetry, each step of a run is a **span**, a record of one action with a start, an
 end, and a parent action that caused it. A whole run becomes a tree of spans, much
