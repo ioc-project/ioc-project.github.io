@@ -143,7 +143,7 @@ Three components have their own sections. The **Cognition Fabric** and the
     The validation environment. Repeatable, observable and governed configurations
     in which protocol claims are measured against a matched baseline.
 
-    [:octicons-arrow-right-24: MAS-Lab](mas-lab/index.md)
+    [:octicons-arrow-right-24: MAS-Lab](https://ioc-project.github.io/mas-lab/)
 
 </div>
 
@@ -165,7 +165,7 @@ the system under MAS-Lab for benchmarking and validation.
 | How the pieces fit together | [Overview → Architecture](overview/architecture.md) |
 | What agents actually exchange | [Cognition Protocols](https://ioc-project.github.io/cognition-protocols/) |
 | How the system sees what happened | [SCOPE](https://ioc-project.github.io/scope/) |
-| How the claims are measured | [MAS-Lab](mas-lab/index.md) |
+| How the claims are measured | [MAS-Lab](https://ioc-project.github.io/mas-lab/) |
 | How to adopt it in an existing MAS | [Getting Started](how-to/index.md) |
 
 
@@ -180,7 +180,7 @@ the system under MAS-Lab for benchmarking and validation.
 |---|---|
 | Cognition Protocols | [Demos](https://ioc-project.github.io/cognition-protocols/demos/) |
 | SCOPE | [Getting Started](https://ioc-project.github.io/scope/tutorials/) |
-| MAS-Lab | [Quickstart and tutorials](https://outshift-open.github.io/mas-lab/tutorials/) |
+| MAS-Lab | [Quickstart and tutorials](https://ioc-project.github.io/mas-lab/tutorials/) |
 | Adoption path across components | [Getting Started](how-to/index.md) |
 
 ## Related reading
@@ -188,6 +188,4 @@ the system under MAS-Lab for benchmarking and validation.
 - [Internet of Cognition](https://outshift.cisco.com/internet-of-cognition) — the
   vision, and the *Scaling Out Superintelligence* whitepaper
 - [Silent Failures, Loud Consequences](https://outshift.cisco.com/blog/ai-ml/cognitive-challenges-in-multi-agent-systems) — the empirical study behind the
-  problem statement. Summarised in [Motivation](overview/motivation.md)
-- [IoC High-Level Architecture](https://github.com/cisco-eti/IoC-BHAG/blob/main/IoC-High-Level-Architecture.md) — the full source document behind this site
-- [Architecture / deployment-scenario explorer](/explorer/) — interactive
+  problem statement.

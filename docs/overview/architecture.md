@@ -150,7 +150,7 @@ would be assertions. The measured results reported under
 [Cognition Protocols](https://ioc-project.github.io/cognition-protocols/evaluation/) were produced
 this way.
 
-[:octicons-arrow-right-24: MAS-Lab in detail](../mas-lab/index.md)
+[:octicons-arrow-right-24: MAS-Lab in detail](https://ioc-project.github.io/mas-lab/)
 
 ## How it composes end to end
 
@@ -165,11 +165,3 @@ For a single governed interaction:
 6. **CEs** bind the tiers their function requires, and publish findings back to the store.
 7. When an engine needs to *act*, an in-path component such as the AgentBridge applies the decision to the live interaction.
 8. **MAS-Lab** measures whether any of this actually improved coordination.
-
-## Explore interactively
-
-An interactive view mapping the architecture onto four deployment scenarios —
-from a single environment to a federation across enterprises — is published
-alongside this site.
-
-[:octicons-arrow-right-24: Open the architecture explorer](/explorer/)
