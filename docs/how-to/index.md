@@ -8,39 +8,39 @@ title: Getting Started
 
 There are two ways into the Internet of Cognition, and they answer different
 questions.
-**Deploy** puts IoC into a multi-agent system you operate.
-**Evaluate** measures what it changes, before or alongside that.
+**Run** puts IoC into a multi-agent system you operate.
+**Test** measures what it changes, before or alongside that.
 
 Neither path requires the other. A team that wants the benefit in production can start
-with Deploy; a team that needs evidence of the benefits first can start with Evaluate.
+with Run; a team that needs evidence of the benefits first can start with Test.
 
 <div class="grid cards" markdown>
 
--   :material-rocket-launch-outline: **Deploy**
+-   :material-rocket-launch-outline: **Run**
 
     ---
 
     Instrument your multi-agent system and insert the Cognition Protocols, so the
     system handles the cognitive challenges it meets and you can see what it did.
 
-    [:octicons-arrow-right-24: Go to Deploy](#deploy)
+    [:octicons-arrow-right-24: Go to Run](#run)
 
--   :material-flask-outline: **Evaluate**
+-   :material-flask-outline: **Test**
 
     ---
 
     Reproduce the existing labs, or build your own, to measure what cognitive
     failures cost and what the Cognition Protocols are worth on your own system.
 
-    [:octicons-arrow-right-24: Go to Evaluate](#evaluate)
+    [:octicons-arrow-right-24: Go to Test](#test)
 
 </div>
 
-## :material-rocket-launch-outline: Deploy
+## :material-rocket-launch-outline: Run
 
 <p class="eyebrow">Cognition Protocols + SCOPE</p>
 
-Deploying IoC means two things, and they are independent — either is useful on its own,
+Running IoC means two things, and they are independent — either is useful on its own,
 and together they close the loop.
 
 **Insert the Cognition Protocols** into your agents, so that when a cognitive
@@ -61,11 +61,11 @@ structurally cannot see.
 Done together, SCOPE is what tells you a cognitive failure happened and the protocols
 are what act on it.
 
-## :material-flask-outline: Evaluate
+## :material-flask-outline: Test
 
 <p class="eyebrow">MAS-Lab, with the Cognition Protocols and SCOPE inside it</p>
 
-Evaluating means running the system under **MAS-Lab**, which integrates both the
+Testing means running the system under **MAS-Lab**, which integrates both the
 Cognition Protocols and SCOPE so that a claim about either can be measured rather
 than asserted.
 
@@ -86,14 +86,14 @@ evidence.
 
 | If you&hellip; | Start with |
 |---|---|
-| operate a multi-agent system and want the benefit in production | **Deploy** |
-| have to justify adoption with numbers before changing production | **Evaluate** |
-| are deciding which cognitive failures matter on your own system | **Evaluate** |
-| already run OpenTelemetry instrumentation | **Deploy**, beginning with SCOPE |
-| own the agents and want coordination benefit first | **Deploy**, beginning with the protocols |
+| operate a multi-agent system and want the benefit in production | **Run** |
+| have to justify adoption with numbers before changing production | **Test** |
+| are deciding which cognitive failures matter on your own system | **Test** |
+| already run OpenTelemetry instrumentation | **Run**, beginning with SCOPE |
+| own the agents and want coordination benefit first | **Run**, beginning with the protocols |
 
-The two are not exclusive, and most teams end up with both: Evaluate to establish what
-a change is worth, Deploy to put it in front of real traffic.
+The two are not exclusive, and most teams end up with both: Test to establish what
+a change is worth, Run to put it in front of real traffic.
 
 ## Related reading
 
