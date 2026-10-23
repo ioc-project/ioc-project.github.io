@@ -55,7 +55,7 @@ structurally cannot see.
 
 | Component | What it adds | Start here |
 |---|---|---|
-| **Cognition Protocols** | ACCORD and CONCORD, deployed as skills in the agents or in the AgentBridge | [Cognition Protocols — Installation](https://ioc-project.github.io/cognition-protocols/protocols/installation/) |
+| **Cognition Protocols** | ACCORD and CONCORD, deployed as skills in the agents or in the AgentBridge | [Cognition Protocols — Installation](https://ioc-project.github.io/cognition-protocols/getting-started/) |
 | **SCOPE** | Instrumentation, trajectory recomposition, detection of cognitive failures, analysis and explainability | [SCOPE — Getting Started](https://ioc-project.github.io/scope/tutorials/) |
 
 Done together, SCOPE is what tells you a cognitive failure happened and the protocols
