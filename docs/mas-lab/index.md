@@ -10,7 +10,7 @@ caused it.
 
 In the Internet of Cognition (IoC), MAS-Lab is where the other components meet. The
 [Cognition Protocols](https://ioc-project.github.io/cognition-protocols/) are tried out in it,
-[SCOPE](../scope/index.md) is fed from it, and every measured claim on this site
+[SCOPE](https://ioc-project.github.io/scope/) is fed from it, and every measured claim on this site
 comes out of it.
 
 <div class="grid cards" markdown>
@@ -131,7 +131,7 @@ Each component gives the others something they could not get alone.
 | Component | What it gets from MAS-Lab | What it gives back |
 |---|---|---|
 | **[Cognition Protocols](https://ioc-project.github.io/cognition-protocols/)** — ACCORD and CONCORD | A controlled place to develop the protocol skills and an A/B test that measures what they add | The response to a detected failure, ready to be added to any agent |
-| **[SCOPE](../scope/index.md)** | Runs in which the failure is known in advance, because MAS-Lab put it there. That is the ground truth a detector needs | An explanation of each run: what happened, between which agents, and why it went wrong |
+| **[SCOPE](https://ioc-project.github.io/scope/)** | Runs in which the failure is known in advance, because MAS-Lab put it there. That is the ground truth a detector needs | An explanation of each run: what happened, between which agents, and why it went wrong |
 | **Your own system** | The same experiments, rerun on your agents instead of a reference team | A before-and-after measured on your own workload. See [Getting Started](../how-to/index.md#test) |
 
 [Integrations](integrations.md) explains how each connection works.

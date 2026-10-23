@@ -46,7 +46,7 @@ Every lab is an A/B test, as described in
 
     ---
 
-    Every run is scored. Runs can also be sent to [SCOPE](../scope/index.md), as
+    Every run is scored. Runs can also be sent to [SCOPE](https://ioc-project.github.io/scope/), as
     shown in [Integrations](integrations.md#runs-come-out-for-scope).
 
 -   **4 · Compare**

@@ -134,7 +134,7 @@ Three components have their own sections. The **Cognition Fabric** and the
     Supplies the comprehension layer: ingestion, normalization, the multi-layer
     knowledge graph, and the analysis engines that convert traces into insight.
 
-    [:octicons-arrow-right-24: SCOPE](scope/index.md)
+    [:octicons-arrow-right-24: SCOPE](https://ioc-project.github.io/scope/)
 
 -   :material-flask-outline: **MAS-Lab**
 
@@ -164,7 +164,7 @@ the system under MAS-Lab for benchmarking and validation.
 | Why the project exists | [Motivation](overview/motivation.md) |
 | How the pieces fit together | [Overview → Architecture](overview/architecture.md) |
 | What agents actually exchange | [Cognition Protocols](https://ioc-project.github.io/cognition-protocols/) |
-| How the system sees what happened | [SCOPE](scope/index.md) |
+| How the system sees what happened | [SCOPE](https://ioc-project.github.io/scope/) |
 | How the claims are measured | [MAS-Lab](mas-lab/index.md) |
 | How to adopt it in an existing MAS | [Getting Started](how-to/index.md) |
 
@@ -176,12 +176,10 @@ the system under MAS-Lab for benchmarking and validation.
     are being written; the MAS-Lab quickstart and SCOPE instrumentation guide are
     available today.
 
-[Instrument an agent with Observe SDK, manually or with a coding harness](scope/tutorials/instrument-your-app.md){ .md-button }
-
 | Component | Tutorials & Demo |
 |---|---|
 | Cognition Protocols | [Demos](https://ioc-project.github.io/cognition-protocols/demos/) |
-| SCOPE | [Tutorials and Demos](scope/tutorials/index.md) |
+| SCOPE | [Getting Started](https://ioc-project.github.io/scope/tutorials/) |
 | MAS-Lab | [Quickstart and tutorials](https://outshift-open.github.io/mas-lab/tutorials/) |
 | Adoption path across components | [Getting Started](how-to/index.md) |
 
