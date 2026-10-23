@@ -82,9 +82,6 @@ nav:
       - Architecture: overview/architecture.md
   - Cognition Protocols: https://ioc-project.github.io/cognition-protocols/
   - SCOPE: https://ioc-project.github.io/scope/
-  - MAS-Lab:
-      - mas-lab/index.md
-      - Integrations: mas-lab/integrations.md
-      - Labs: mas-lab/labs.md
+  - MAS-Lab: https://ioc-project.github.io/mas-lab/
   - Getting Started: how-to/index.md
   - Publications: publications/index.md

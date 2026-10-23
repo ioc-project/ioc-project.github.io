@@ -47,16 +47,16 @@ Each class of failure requires its own answer, as summarized in the table below:
 
 | Kind | Cause | Answer |
 |---|---|---|
-| **Structural** | A specific design decision (e.g. a crash-only test gate) | Name it, reproduce it, design it away with [MAS-Lab](../mas-lab/index.md) |
+| **Structural** | A specific design decision (e.g. a crash-only test gate) | Name it, reproduce it, design it away with [MAS-Lab](https://ioc-project.github.io/mas-lab/) |
 | **Emergent** | The task, the context, or intrinsic model behaviour | Detect and correct at runtime |
 
-IoC addresses the structural class with [MAS-Lab](../mas-lab/index.md), an open-source framework
+IoC addresses the structural class with [MAS-Lab](https://ioc-project.github.io/mas-lab/), an open-source framework
 allowing to iterate on the design of a MAS and quantifying the improvements (or regressions) from
 one version to another.
 
 The emergent class of failures is addressed by IoC with [Cognition Protocols](https://ioc-project.github.io/cognition-protocols/) for runtime
 coordination, detection built on the [SCOPE](https://ioc-project.github.io/scope/) observability substrate, and potentially
-[MAS-Lab](../mas-lab/index.md) to validate each claim.
+[MAS-Lab](https://ioc-project.github.io/mas-lab/) to validate each claim.
 
 ## Source
 

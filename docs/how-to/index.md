@@ -80,7 +80,7 @@ evidence.
 
 | What you want | Start here |
 |---|---|
-| Install MAS-Lab and run a first example, then reproduce or write labs | [MAS-Lab](../mas-lab/index.md) |
+| Install MAS-Lab and run a first example, then reproduce or write labs | [MAS-Lab](https://ioc-project.github.io/mas-lab/) |
 
 ## Which to start with
 
