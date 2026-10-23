@@ -117,7 +117,7 @@ its own repository, lifecycle and release cadence, and operates against any MAS
 emitting OpenTelemetry traces without requiring the Cognition Fabric, the Cognition
 Protocols or any other IoC component.
 
-[:octicons-arrow-right-24: Deployment modes](../how-to/index.md#the-three-modes)
+[:octicons-arrow-right-24: Getting started](../how-to/index.md#run)
 
 ## In this section
 
