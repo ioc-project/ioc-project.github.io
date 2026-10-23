@@ -72,8 +72,6 @@ extra_css:
   - assets/extra.css
 
 extra_javascript:
-  # Drives the consumption-modes explorer on the How to page; a no-op elsewhere.
-  - assets/consumption-modes.js
   # "Available today" toggle on the Overview's architecture figure; a no-op elsewhere.
   - assets/architecture-toggle.js
 
