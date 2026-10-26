@@ -18,20 +18,18 @@ exclude = [
     'example\.com',
     '\.well-known',
 
-    # The site is deployed after merge, so self-referencing URLs cannot be
-    # resolved from a PR build
-    'https://ioc-project\.github\.io',
+    # This site is deployed after merge, so its own root cannot be resolved
+    # from a PR build. Sibling sites (/mas-lab/, /scope/, /cognition-protocols/)
+    # and the ioc-project repositories are public and are checked.
+    'https://ioc-project\.github\.io/?$',
+    'https://ioc-project\.github\.io/(how-to|overview|publications)(/|$)',
 
     # Private and internal repos that CI cannot access (the workflow token
     # gets a 404)
     'https://github\.com/cisco-eti/',
-    'https://github\.com/ioc-project/',
 
     # /explorer/ is served outside this MkDocs build
     'file://.*/explorer/?$',
-
-    # Lab not published upstream yet; remove once it exists in outshift-open/mas-lab
-    'https://github\.com/outshift-open/mas-lab/tree/main/labs/ioc-motivation\.lab',
 
     # Templated URLs
     '\{[a-z_]+\}',
